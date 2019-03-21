@@ -1,0 +1,79 @@
+{
+  "obat": [
+    {
+      "nama": "Aipi",
+      "satuan": "Strip",
+      "stok": 84
+    },
+    {
+      "nama": "Amoxilin",
+      "satuan": "Strip",
+      "stok": 65
+    },
+    {
+      "nama": "Alopurinol",
+      "satuan": "Strip",
+      "stok": 81
+    },
+    {
+      "nama": "Antimo",
+      "satuan": "Strip",
+      "stok": 70
+    },
+    {
+      "nama": "Betadine",
+      "satuan": "Botol",
+      "stok": 22
+    },
+    {
+      "nama": "Bodrex",
+      "satuan": "Strip",
+      "stok": 68
+    },
+    {
+      "nama": "Bodrexin",
+      "satuan": "Dos",
+      "stok": 25
+    },
+    {
+      "nama": "Cendo Xitrol",
+      "satuan": "Strip",
+      "stok": 26
+    },
+    {
+      "nama": "CTM",
+      "satuan": "Botol",
+      "stok": 42
+    },
+    {
+      "nama": "Mixagrip",
+      "satuan": "Pcs",
+      "stok": 50
+    },
+    {
+      "nama": "Natur-E",
+      "satuan": "Pcs",
+      "stok": 33
+    },
+    {
+      "nama": "Paracetamol",
+      "satuan": "Strip",
+      "stok": 61
+    },
+    {
+      "nama": "Ponstan",
+      "satuan": "Strip",
+      "stok": 24
+    },
+    {
+      "nama": "Promag",
+      "satuan": "Strip",
+      "stok": 15
+    },
+    {
+      "nama": "Sacred Water",
+      "satuan": "Strip",
+      "stok": 16
+    }
+  ]
+}

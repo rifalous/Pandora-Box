@@ -1,0 +1,49 @@
+{
+  "kamar": [
+    {
+      "nama": "Kamar Melati",
+      "terisi": 7,
+      "kosong": 3
+    },
+    {
+      "nama": "Kamar Mawar",
+      "terisi": 2,
+      "kosong": 8
+    },
+    {
+      "nama": "Kamar Cempaka",
+      "terisi": 6,
+      "kosong": 4
+    },
+    {
+      "nama": "Kamar Dahlia",
+      "terisi": 4,
+      "kosong": 6
+    },
+    {
+      "nama": "Kamar Anggrek",
+      "terisi": 5,
+      "kosong": 5
+    },
+    {
+      "nama": "Kamar Bougenville",
+      "terisi": 7,
+      "kosong": 3
+    },
+    {
+      "nama": "Kamar Lili",
+      "terisi": 8,
+      "kosong": 2
+    },
+    {
+      "nama": "Kamar Teratai",
+      "terisi": 9,
+      "kosong": 1
+    },
+    {
+      "nama": "Kamar Flamboyan",
+      "terisi": 10,
+      "kosong": 0
+    }
+  ]
+}

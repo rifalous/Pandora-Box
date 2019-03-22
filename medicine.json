@@ -2,13 +2,13 @@
   "obat": [
     {
       "nama": "Alpha",
-      "satuan": "Strip",
-      "stok": 55
+      "satuan": "A",
+      "stok": 22
     },
     {
-      "nama": "Amoxilin",
-      "satuan": "Strip",
-      "stok": 65
+      "nama": "Beta",
+      "satuan": "B",
+      "stok": 33
     },
     {
       "nama": "Alopurinol",

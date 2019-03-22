@@ -1,13 +1,13 @@
 {
   "obat": [
     {
-      "nama": "Alpha1",
+      "nama": "Aipi",
       "satuan": "Strip",
-      "stok": 11
+      "stok": 84
     },
     {
-      "nama": "Beta2",
-      "satuan": "Botol",
+      "nama": "Amoxilin",
+      "satuan": "Strip",
       "stok": 12
     },
     {

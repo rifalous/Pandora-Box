@@ -1,14 +1,14 @@
 {
   "obat": [
     {
-      "nama": "Alpha",
-      "satuan": "A",
-      "stok": 22
+      "nama": "Alpha1",
+      "satuan": "Strip",
+      "stok": 11
     },
     {
-      "nama": "Beta",
-      "satuan": "B",
-      "stok": 33
+      "nama": "Beta2",
+      "satuan": "Botol",
+      "stok": 12
     },
     {
       "nama": "Alopurinol",

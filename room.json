@@ -1,6 +1,11 @@
 {
   "kamar": [
     {
+      "nama": "Kamar Melati",
+      "terisi": 7,
+      "kosong": 3
+    },
+    {
       "nama": "Kamar Mawar",
       "terisi": 2,
       "kosong": 8

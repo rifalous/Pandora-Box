@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2019 at 11:09 AM
+-- Generation Time: Jul 25, 2019 at 10:07 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.26
 
@@ -42,152 +42,30 @@ CREATE TABLE `actions` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `companies`
+-- Dumping data for table `actions`
 --
 
-CREATE TABLE `companies` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `city` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `division_id` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `companies`
---
-
-INSERT INTO `companies` (`id`, `code`, `name`, `address`, `city`, `division_id`, `created_at`, `updated_at`) VALUES
-(1, '0001', 'PT. Test Alpha', 'Jl. Test Alpha', 'Kota Bandung', 1, '2019-05-07 00:21:42', '2019-05-07 00:21:42');
+INSERT INTO `actions` (`id`, `action`, `level_id`, `material`, `service_rs`, `service_medis`, `service_anestesi`, `service_dll`, `total`, `created_at`, `updated_at`) VALUES
+(1, 'Cabut Gigi', 1, 10000, 0, 0, 0, 0, 10000, '2019-07-21 23:23:13', '2019-07-21 23:23:13');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customers`
+-- Table structure for table `cities`
 --
 
-CREATE TABLE `customers` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `customer_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `customer_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `customer_address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `customer_phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `customer_email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `customer_website` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `customer_pic_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `customer_pic_phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `customer_pic_email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `departments`
---
-
-CREATE TABLE `departments` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `department_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `division_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sap_key` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `department_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `departments`
---
-
-INSERT INTO `departments` (`id`, `department_code`, `division_id`, `sap_key`, `department_name`, `created_at`, `updated_at`) VALUES
-(1, '00001', '1', NULL, 'Departemen Alpha', '2019-05-07 00:22:06', '2019-05-07 00:22:06');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `diagnoses`
---
-
-CREATE TABLE `diagnoses` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `diagnosis` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `divisions`
---
-
-CREATE TABLE `divisions` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `division_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `division_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dir_key` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `divisions`
---
-
-INSERT INTO `divisions` (`id`, `division_code`, `division_name`, `dir_key`, `created_at`, `updated_at`) VALUES
-(1, '00001', 'Divisi A', 'ADMIN', '2019-05-07 00:20:52', '2019-05-07 00:20:52');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `doctors`
---
-
-CREATE TABLE `doctors` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nip` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `doctors`
---
-
-INSERT INTO `doctors` (`id`, `code`, `nip`, `name`, `address`, `phone`, `created_at`, `updated_at`) VALUES
-(1, '001', '11135264801', 'David', 'Jl. Bandung Alpha', '081222333444', '2019-05-07 00:27:38', '2019-05-07 00:27:38'),
-(2, '002', '11135264802', 'Johan', 'Jl. Jawa Beta', '081222555666', '2019-05-07 00:28:21', '2019-05-07 00:28:21');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `indonesia_cities`
---
-
-CREATE TABLE `indonesia_cities` (
+CREATE TABLE `cities` (
   `id` char(4) COLLATE utf8mb4_unicode_ci NOT NULL,
   `province_id` char(2) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `indonesia_cities`
+-- Dumping data for table `cities`
 --
 
-INSERT INTO `indonesia_cities` (`id`, `province_id`, `name`) VALUES
+INSERT INTO `cities` (`id`, `province_id`, `name`) VALUES
 ('1101', '11', 'KABUPATEN SIMEULUE'),
 ('1102', '11', 'KABUPATEN ACEH SINGKIL'),
 ('1103', '11', 'KABUPATEN ACEH SELATAN'),
@@ -706,20 +584,123 @@ INSERT INTO `indonesia_cities` (`id`, `province_id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `indonesia_districts`
+-- Table structure for table `companies`
 --
 
-CREATE TABLE `indonesia_districts` (
+CREATE TABLE `companies` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `division_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `companies`
+--
+
+INSERT INTO `companies` (`id`, `code`, `name`, `address`, `city`, `division_id`, `created_at`, `updated_at`) VALUES
+(1, '0001', 'PT. Perusahaan A', 'Jl. Test ABC No. 01', 'Kabupaten Bandung', 1, '2019-07-21 22:11:25', '2019-07-21 22:11:25'),
+(2, '0002', 'PT. Perusahaan B', 'Jl. Test ABC No. 02', 'Kota Bandung', 2, '2019-07-21 22:12:06', '2019-07-21 22:12:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `currencies`
+--
+
+CREATE TABLE `currencies` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alias` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `symbol` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `convertion` double NOT NULL,
+  `thousand_separator` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `decimal_separator` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customers`
+--
+
+CREATE TABLE `customers` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `customer_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `customer_phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `customer_email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `customer_website` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `customer_pic_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `customer_pic_phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `customer_pic_email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `departments`
+--
+
+CREATE TABLE `departments` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `department_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `division_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sap_key` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `department_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `departments`
+--
+
+INSERT INTO `departments` (`id`, `department_code`, `division_id`, `sap_key`, `department_name`, `created_at`, `updated_at`) VALUES
+(1, '00001', '1', 'DEPART01', 'Departemen A', '2019-07-21 22:17:14', '2019-07-21 22:17:14'),
+(2, '00002', '2', 'DEPART02', 'Departemen B', '2019-07-21 22:17:44', '2019-07-21 22:17:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `diagnoses`
+--
+
+CREATE TABLE `diagnoses` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `diagnosis` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `districts`
+--
+
+CREATE TABLE `districts` (
   `id` char(7) COLLATE utf8mb4_unicode_ci NOT NULL,
   `city_id` char(4) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `indonesia_districts`
+-- Dumping data for table `districts`
 --
 
-INSERT INTO `indonesia_districts` (`id`, `city_id`, `name`) VALUES
+INSERT INTO `districts` (`id`, `city_id`, `name`) VALUES
 ('1101010', '1101', 'TEUPAH SELATAN'),
 ('1101020', '1101', 'SIMEULUE TIMUR'),
 ('1101021', '1101', 'TEUPAH BARAT'),
@@ -2177,7 +2158,7 @@ INSERT INTO `indonesia_districts` (`id`, `city_id`, `name`) VALUES
 ('1701051', '1701', 'AIR NIPIS'),
 ('1701060', '1701', 'PINO'),
 ('1701061', '1701', 'PINORAYA');
-INSERT INTO `indonesia_districts` (`id`, `city_id`, `name`) VALUES
+INSERT INTO `districts` (`id`, `city_id`, `name`) VALUES
 ('1701062', '1701', 'ULU MANNA'),
 ('1702020', '1702', 'KOTA PADANG'),
 ('1702021', '1702', 'SINDANG BELITI ILIR'),
@@ -3720,7 +3701,7 @@ INSERT INTO `indonesia_districts` (`id`, `city_id`, `name`) VALUES
 ('3322121', '3322', 'BANCAK'),
 ('3322130', '3322', 'PRINGAPUS'),
 ('3322140', '3322', 'BERGAS');
-INSERT INTO `indonesia_districts` (`id`, `city_id`, `name`) VALUES
+INSERT INTO `districts` (`id`, `city_id`, `name`) VALUES
 ('3322151', '3322', 'UNGARAN BARAT'),
 ('3322152', '3322', 'UNGARAN TIMUR'),
 ('3323010', '3323', 'PARAKAN'),
@@ -5316,7 +5297,7 @@ INSERT INTO `indonesia_districts` (`id`, `city_id`, `name`) VALUES
 ('6104101', '6104', 'MEMPAWAH TIMUR'),
 ('6104110', '6104', 'SUNGAI KUNYIT'),
 ('6104120', '6104', 'TOHO');
-INSERT INTO `indonesia_districts` (`id`, `city_id`, `name`) VALUES
+INSERT INTO `districts` (`id`, `city_id`, `name`) VALUES
 ('6104121', '6104', 'SADANIANG'),
 ('6105010', '6105', 'TOBA'),
 ('6105020', '6105', 'MELIAU'),
@@ -6827,9 +6808,9 @@ INSERT INTO `indonesia_districts` (`id`, `city_id`, `name`) VALUES
 ('7601031', '7601', 'TAMMERODO'),
 ('7601033', '7601', 'TUBO SENDANA'),
 ('7601040', '7601', 'MALUNDA'),
-('7601041', '7601', 'ULUMANDA');
-INSERT INTO `indonesia_districts` (`id`, `city_id`, `name`) VALUES
-('7602010', '7602', 'TINAMBUNG'),
+('7601041', '7601', 'ULUMANDA'),
+('7602010', '7602', 'TINAMBUNG');
+INSERT INTO `districts` (`id`, `city_id`, `name`) VALUES
 ('7602011', '7602', 'BALANIPA'),
 ('7602012', '7602', 'LIMBORO'),
 ('7602020', '7602', 'TUBBI TARAMANU'),
@@ -7821,19 +7802,696 @@ INSERT INTO `indonesia_districts` (`id`, `city_id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `indonesia_provinces`
+-- Table structure for table `divisions`
 --
 
-CREATE TABLE `indonesia_provinces` (
+CREATE TABLE `divisions` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `division_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `division_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dir_key` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `divisions`
+--
+
+INSERT INTO `divisions` (`id`, `division_code`, `division_name`, `dir_key`, `created_at`, `updated_at`) VALUES
+(1, '001', 'Divisi A', 'ADMIN', '2019-07-21 22:08:51', '2019-07-21 22:08:51'),
+(2, '002', 'Divisi B', 'PLANT', '2019-07-21 22:10:03', '2019-07-21 22:10:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `doctors`
+--
+
+CREATE TABLE `doctors` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nip` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `doctors`
+--
+
+INSERT INTO `doctors` (`id`, `code`, `nip`, `name`, `address`, `phone`, `created_at`, `updated_at`) VALUES
+(1, '001', '11135264801', 'David Foster', 'Jl. Test ABC No. 01', '081222123321', '2019-07-21 22:30:44', '2019-07-21 22:30:44'),
+(2, '002', '11135254658', 'John Doe', 'Jl. Test ABC No. 02', '081222123123', '2019-07-25 00:27:58', '2019-07-25 00:27:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `examination_outpatients`
+--
+
+CREATE TABLE `examination_outpatients` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `outpatient_id` int(11) NOT NULL,
+  `pasien_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `doctor_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `amount_action` double(25,2) NOT NULL,
+  `amount_material` double(25,2) NOT NULL,
+  `amount` double(25,2) NOT NULL,
+  `check_date` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `registration_date` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `examination_outpatients`
+--
+
+INSERT INTO `examination_outpatients` (`id`, `outpatient_id`, `pasien_id`, `doctor_name`, `amount_action`, `amount_material`, `amount`, `check_date`, `registration_date`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Dadang Sukiman', 'David Foster', 0.00, 20000.00, 20000.00, '2019-07-22', '2019-07-22', '2019-07-21 23:37:30', '2019-07-21 23:37:30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `examination_outpatient_datas`
+--
+
+CREATE TABLE `examination_outpatient_datas` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `examination_outpatient_id` int(11) NOT NULL,
+  `action_id` int(11) NOT NULL,
+  `cost_outpatient` double(25,2) NOT NULL,
+  `many_action` int(11) NOT NULL,
+  `total_action` double(25,2) NOT NULL,
+  `doctor_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `examination_outpatient_details`
+--
+
+CREATE TABLE `examination_outpatient_details` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `examination_outpatient_id` int(11) NOT NULL,
+  `material_id` int(11) NOT NULL,
+  `price_material` double(25,2) NOT NULL,
+  `many_material` int(11) NOT NULL,
+  `total_material` double(25,2) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `examination_outpatient_details`
+--
+
+INSERT INTO `examination_outpatient_details` (`id`, `examination_outpatient_id`, `material_id`, `price_material`, `many_material`, `total_material`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 10000.00, 2, 20000.00, '2019-07-21 23:37:30', '2019-07-21 23:37:30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inpatients`
+--
+
+CREATE TABLE `inpatients` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `no_registrasi` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pasien_id` int(11) NOT NULL,
+  `tgl_masuk` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `entry_procedure` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `room_id` int(11) NOT NULL,
+  `doctor_id` int(11) NOT NULL,
+  `disease` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `person_in_charge` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `inpatients`
+--
+
+INSERT INTO `inpatients` (`id`, `no_registrasi`, `pasien_id`, `tgl_masuk`, `time`, `entry_procedure`, `room_id`, `doctor_id`, `disease`, `person_in_charge`, `name`, `address`, `phone`, `created_at`, `updated_at`) VALUES
+(1, '001', 1, '2019-07-22', '14:00', 'Puskesmas', 1, 1, 'Cancer', 'Orang Tua', 'Dadang', 'Jl. Test ABC No.01', '081222333444', '2019-07-22 00:27:34', '2019-07-22 00:27:34');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inpatient_payments`
+--
+
+CREATE TABLE `inpatient_payments` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `examination_inpatient_id` int(11) NOT NULL,
+  `pasien_id` int(11) NOT NULL,
+  `room_id` int(11) NOT NULL,
+  `total_biaya` int(11) NOT NULL,
+  `sisa_tagihan` int(11) NOT NULL,
+  `jumlah_dibayar` int(11) NOT NULL,
+  `tgl_bayar` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `diskon` int(11) NOT NULL,
+  `discount` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sisa_pembayaran` int(11) NOT NULL,
+  `payment` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ket` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `levels`
+--
+
+CREATE TABLE `levels` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `class` int(11) NOT NULL,
+  `tarif` double(25,2) NOT NULL DEFAULT '0.00',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `levels`
+--
+
+INSERT INTO `levels` (`id`, `code`, `class`, `tarif`, `created_at`, `updated_at`) VALUES
+(1, '001', 3, 300000.00, '2019-07-21 22:38:29', '2019-07-21 22:39:12'),
+(2, '002', 2, 600000.00, '2019-07-21 22:39:33', '2019-07-21 22:39:33'),
+(3, '003', 1, 1000000.00, '2019-07-21 22:40:32', '2019-07-21 22:40:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login_histories`
+--
+
+CREATE TABLE `login_histories` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `datetime` datetime DEFAULT NULL,
+  `type` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `materials`
+--
+
+CREATE TABLE `materials` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `packaging` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fill_in` int(11) NOT NULL,
+  `unit` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `minimum_stock` int(11) NOT NULL,
+  `group` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `supplier_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `purchase_price` double(25,2) NOT NULL DEFAULT '0.00',
+  `selling_price` double(25,2) NOT NULL DEFAULT '0.00',
+  `recipe_prices` int(11) NOT NULL DEFAULT '0',
+  `profit` int(11) NOT NULL DEFAULT '0',
+  `profit_persen` int(11) NOT NULL DEFAULT '0',
+  `expire_date` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_update` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `update_by` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `materials`
+--
+
+INSERT INTO `materials` (`id`, `code`, `name`, `packaging`, `fill_in`, `unit`, `minimum_stock`, `group`, `type`, `supplier_id`, `purchase_price`, `selling_price`, `recipe_prices`, `profit`, `profit_persen`, `expire_date`, `last_update`, `update_by`, `created_at`, `updated_at`) VALUES
+(1, '001', 'Paracetamol', 'Botol', 100, 'cc', 20, '0', '2', '1', 10000.00, 10000.00, 10000, 0, 0, '2020-12-01', '', '', '2019-07-21 23:33:42', '2019-07-21 23:33:42'),
+(2, '002', 'Bodrex', 'Tablet', 12, 'butir', 10, '0', '0', '1', 10000.00, 10000.00, 10000, 0, 0, '2025-01-01', '', '', '2019-07-24 02:10:09', '2019-07-24 02:10:09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menus`
+--
+
+CREATE TABLE `menus` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `parent_id` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `order_number` int(11) NOT NULL,
+  `is_showed` tinyint(1) NOT NULL,
+  `method` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `menus`
+--
+
+INSERT INTO `menus` (`id`, `parent_id`, `name`, `url`, `icon`, `order_number`, `is_showed`, `method`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 0, 'Dashboard', 'dashboard', 'mdi mdi-view-dashboard', 2, 1, 'dashboard', '2018-08-15 11:26:26', '2018-10-10 08:48:15', NULL),
+(2, 0, 'Pengguna', 'user', 'mdi mdi-account', 4, 1, 'pengguna', '2018-08-15 11:28:13', '2018-10-15 02:56:15', '2018-10-15 02:56:15'),
+(3, 0, 'Tipe Kendaraan', 'type', 'mdi mdi-car', 6, 1, 'tipe-kendaraan', '2018-08-15 11:30:04', '2018-10-14 04:33:53', '2018-10-14 04:33:53'),
+(4, 0, 'Grup Lokasi', 'group_location', 'mdi mdi-pin', 8, 1, 'grup-lokasi', '2018-08-15 11:30:31', '2018-10-14 04:34:00', '2018-10-14 04:34:00'),
+(5, 0, 'Tarif', 'rate', 'mdi mdi-currency-usd', 10, 1, 'tarif', '2018-08-15 11:30:56', '2018-10-14 04:34:08', '2018-10-14 04:34:08'),
+(6, 0, 'Parkir Histori', 'parking_history', 'mdi mdi-parking', 12, 1, 'parkir-histori', '2018-08-15 11:33:32', '2018-10-14 04:34:20', '2018-10-14 04:34:20'),
+(7, 0, 'Isi Ulang Histori', 'topup_history', 'mdi mdi-book', 14, 1, 'isi-ulang-histori', '2018-08-15 11:34:00', '2018-10-14 04:34:31', '2018-10-14 04:34:31'),
+(8, 14, 'Menu', 'menu', 'mdi mdi-menu', 63, 1, 'settings', '2018-08-15 11:34:18', '2019-07-21 21:52:43', NULL),
+(14, 0, 'Setting', 'settings', 'mdi mdi-settings', 56, 1, 'settings', '2018-08-15 11:59:05', '2019-07-21 21:52:43', NULL),
+(15, 14, 'Roles', 'settings/role', 'fa fa-universal-access', 57, 1, 'settings', '2018-08-15 11:59:36', '2019-07-21 21:56:07', NULL),
+(16, 14, 'Permission', 'settings/permission', 'fa fa-key', 59, 1, 'settings', '2018-08-15 11:59:59', '2019-07-21 21:56:19', NULL),
+(17, 0, 'FAQ', 'faq', 'mdi mdi-help-circle', 32, 1, 'faq', '2018-08-22 09:41:18', '2018-10-15 02:55:46', '2018-10-15 02:55:46'),
+(18, 0, 'Bantuan', 'help', 'mdi mdi-help-circle-outline', 34, 1, 'bantuan', '2018-08-22 09:41:42', '2018-10-15 02:55:50', '2018-10-15 02:55:50'),
+(24, 0, 'Upload Data', 'upload', 'glyphicon glyphicon-upload', 4, 1, 'dashboard', '2018-10-14 04:36:12', '2019-03-13 12:10:57', '2019-03-13 12:10:57'),
+(25, 24, 'Upload Bom', 'bom', 'glyphicon glyphicon-upload', 7, 1, 'dashboard', '2018-10-14 04:36:56', '2019-03-13 12:10:57', '2019-03-13 12:10:57'),
+(26, 24, 'Upload Master Price', 'upload_master_price', 'glyphicon glyphicon-upload', 9, 1, 'dashboard', '2018-10-14 04:38:20', '2019-03-13 12:10:57', '2019-03-13 12:10:57'),
+(27, 24, 'Upload Budget Planning', 'upload_budget_planning', 'glyphicon glyphicon-upload', 5, 1, 'dashboard', '2018-10-14 04:39:17', '2019-03-13 12:10:57', '2019-03-13 12:10:57'),
+(28, 0, 'Master Data', 'master', 'mdi mdi-book', 4, 1, 'dashboard', '2018-10-15 02:49:33', '2019-03-25 08:35:06', NULL),
+(29, 28, 'Division', 'division', NULL, 13, 1, 'dashboard', '2018-10-15 02:51:25', '2019-03-13 12:11:30', '2019-03-13 12:11:30'),
+(30, 28, 'Department', 'department', NULL, 15, 1, 'dashboard', '2018-10-15 02:51:47', '2019-03-13 12:11:26', '2019-03-13 12:11:26'),
+(31, 28, 'Employee', 'employee', 'mdi mdi-account', 17, 1, 'dashboard', '2018-10-15 02:52:30', '2018-10-17 21:24:25', '2018-10-17 21:24:25'),
+(32, 28, 'Customer', 'customer', NULL, 17, 1, 'dashboard', '2018-10-15 02:53:22', '2019-03-13 12:11:23', '2019-03-13 12:11:23'),
+(33, 28, 'Supplier', 'supplier', NULL, 19, 1, 'dashboard', '2018-10-15 02:53:37', '2019-03-13 12:11:19', '2019-03-13 12:11:19'),
+(34, 28, 'Plant', 'plant', NULL, 23, 1, 'dashboard', '2018-10-15 02:54:19', '2018-10-17 01:45:25', '2018-10-17 01:45:25'),
+(35, 28, 'Part Category', 'category_part', NULL, 25, 1, 'dashboard', '2018-10-15 02:54:44', '2018-10-17 01:37:44', '2018-10-17 01:37:44'),
+(36, 28, 'Part', 'part', NULL, 21, 1, 'dashboard', '2018-10-15 02:55:09', '2019-03-13 12:11:11', '2019-03-13 12:11:11'),
+(37, 14, 'System', 'system', 'fa fa-cogs', 61, 1, 'settings', '2018-10-16 01:21:44', '2019-07-21 21:56:31', NULL),
+(38, 28, 'Catalog', 'catalog', NULL, 23, 1, 'dashboard', '2018-10-17 01:38:09', '2019-03-13 12:11:14', '2019-03-13 12:11:14'),
+(39, 28, 'User', 'user', 'mdi mdi-account', 5, 1, 'users', '2018-10-17 21:25:00', '2019-07-21 21:57:43', NULL),
+(40, 28, 'Pasien', 'pasien', 'fa fa-wheelchair', 13, 1, 'dashboard', '2019-03-18 08:12:42', '2019-07-21 21:53:14', NULL),
+(41, 28, 'Dokter', 'doctor', 'fa fa-user-md', 15, 1, 'dashboard', '2019-03-18 08:56:07', '2019-07-21 21:53:30', NULL),
+(42, 28, 'Tindakan/Tarif', 'action', 'fa fa-usd', 17, 1, 'dashboard', '2019-03-18 08:58:12', '2019-07-21 21:53:42', NULL),
+(43, 28, 'Supplier', 'supplier', 'fa fa-balance-scale', 23, 1, 'dashboard', '2019-04-01 10:38:08', '2019-07-21 21:54:17', NULL),
+(44, 0, 'Bahan & Obat', 'material', 'fa fa-medkit', 26, 1, 'dashboard', '2019-04-01 10:38:30', '2019-07-24 02:12:28', NULL),
+(45, 28, 'Ruangan', 'room', 'fa fa-bed', 21, 1, 'dashboard', '2019-04-03 07:44:57', '2019-07-21 21:54:06', NULL),
+(46, 28, 'Kelas', 'level', 'fa fa-level-up', 19, 1, 'dashboard', '2019-04-03 07:45:11', '2019-07-21 21:53:55', NULL),
+(47, 28, 'Departement', 'department', NULL, 7, 1, 'dashboard', '2019-04-03 07:46:47', '2019-05-08 16:37:10', '2019-05-08 16:37:10'),
+(48, 28, 'Divisi', 'division', NULL, 11, 1, 'dashboard', '2019-04-03 07:47:37', '2019-05-08 16:37:15', '2019-05-08 16:37:15'),
+(49, 28, 'Perusahaan', 'company', 'fa fa-briefcase', 9, 1, 'dashboard', '2019-04-03 08:52:28', '2019-07-21 21:53:02', NULL),
+(50, 58, 'Rawat Inap', 'rawat_inap', NULL, 29, 1, 'dashboard', '2019-04-03 08:59:09', '2019-04-03 09:07:51', '2019-04-03 09:07:51'),
+(51, 50, 'Registrasi', 'registration', NULL, 30, 1, 'dashboard', '2019-04-03 09:00:04', '2019-04-03 09:06:47', NULL),
+(52, 50, 'Pemeriksaan', 'examination', NULL, 32, 1, 'dashboard', '2019-04-03 09:00:30', '2019-04-03 09:06:47', NULL),
+(53, 58, 'Rawat Jalan', 'rawat_jalan', NULL, 35, 1, 'dashboard', '2019-04-03 09:00:54', '2019-04-03 09:07:51', '2019-04-03 09:07:51'),
+(54, 53, 'Registrasi', 'outpatient', NULL, 36, 1, 'dashboard', '2019-04-03 09:03:39', '2019-04-03 09:06:47', NULL),
+(55, 53, 'Pemeriksaan', 'examination_outpatient', NULL, 38, 1, 'dashboard', '2019-04-03 09:04:13', '2019-04-03 09:06:47', NULL),
+(56, 58, 'Pasien Keluar', 'comes_out', NULL, 41, 1, 'dashboard', '2019-04-03 09:05:23', '2019-04-03 09:07:51', '2019-04-03 09:07:51'),
+(57, 58, 'Pembayaran', 'payment', NULL, 43, 1, 'dashboard', '2019-04-03 09:05:49', '2019-04-03 09:07:51', '2019-04-03 09:07:51'),
+(58, 0, 'Rawat', 'rawat', NULL, 28, 1, 'dashboard', '2019-04-03 09:06:02', '2019-04-03 09:07:51', '2019-04-03 09:07:51'),
+(59, 0, 'Rawat Inap', 'inpatient', 'mdi mdi-hospital-building', 28, 1, 'dashboard', '2019-04-03 09:08:42', '2019-07-21 21:52:49', NULL),
+(60, 59, 'Registrasi', 'registration_inpatient', 'fa fa-user-plus', 29, 1, 'dashboard', '2019-04-03 09:09:14', '2019-07-21 21:54:42', NULL),
+(61, 59, 'Pemeriksaan', 'examination_inpatient', 'fa fa-stethoscope', 31, 1, 'dashboard', '2019-04-03 09:09:34', '2019-07-21 21:55:02', NULL),
+(62, 0, 'Rawat Jalan', 'outpatient', 'mdi mdi-account-convert', 38, 1, 'dashboard', '2019-04-03 09:10:25', '2019-07-21 21:52:43', NULL),
+(63, 62, 'Registrasi', 'registration_outpatient', 'fa fa-user-plus', 39, 1, 'dashboard', '2019-04-03 09:10:53', '2019-07-21 21:54:47', NULL),
+(64, 62, 'Pemeriksaan', 'examination_outpatient', 'fa fa-stethoscope', 41, 1, 'dashboard', '2019-04-03 09:12:00', '2019-07-21 21:55:08', NULL),
+(65, 59, 'Pasien Keluar', 'patient_exits', 'mdi mdi-book', 33, 1, 'dashboard', '2019-04-03 09:12:27', '2019-07-21 21:52:42', NULL),
+(66, 59, 'Pembayaran Rawat Inap', 'inpatient_payment', 'fa fa-usd', 35, 1, 'dashboard', '2019-04-03 09:12:44', '2019-07-21 21:55:39', NULL),
+(67, 0, 'Informasi', 'Informas', 'mdi mdi-information', 42, 1, 'dashboard', '2019-05-08 15:31:32', '2019-06-19 00:18:54', '2019-06-19 00:18:54'),
+(68, 0, 'Laporan', 'report', 'mdi mdi-bookmark-outline', 46, 1, 'dashboard', '2019-05-08 15:33:49', '2019-07-21 21:52:43', NULL),
+(69, 68, 'Rawat Jalan Perhari', 'hospitalisation_day', 'Hospitalisation per day', 47, 1, 'dashboard', '2019-05-08 15:35:55', '2019-07-21 21:52:43', NULL),
+(70, 62, 'Pembayaran Rawat Jalan', 'payment', 'fa fa-usd', 43, 1, 'dashboard', '2019-06-10 18:17:37', '2019-07-21 21:55:46', NULL),
+(71, 68, 'Rawat Jalan Periode', 'hospitalisation_periode', NULL, 49, 1, 'dashboard', '2019-06-19 00:17:45', '2019-07-21 21:52:43', NULL),
+(72, 68, 'Laporan Pasien Keluar Per Hari', 'pasien_exit_list', NULL, 53, 1, 'dashboard', '2019-06-25 16:02:18', '2019-07-21 21:52:43', NULL),
+(73, 68, 'Laporan Pasien Keluar Periode', 'pasien_exit_day', NULL, 51, 1, 'dashboard', '2019-06-25 16:02:57', '2019-07-21 21:52:43', NULL),
+(74, 28, 'Divisi', 'division', 'fa fa-users', 7, 1, 'dashboard', '2019-07-21 21:51:41', '2019-07-21 21:52:02', NULL),
+(75, 28, 'Departemen', 'department', 'fa fa-university', 11, 1, 'dashboard', '2019-07-21 21:52:35', '2019-07-21 21:52:52', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2016_06_01_000001_create_oauth_auth_codes_table', 1),
+(4, '2016_06_01_000002_create_oauth_access_tokens_table', 1),
+(5, '2016_06_01_000003_create_oauth_refresh_tokens_table', 1),
+(6, '2016_06_01_000004_create_oauth_clients_table', 1),
+(7, '2016_06_01_000005_create_oauth_personal_access_clients_table', 1),
+(8, '2016_08_03_072729_create_provinces_table', 1),
+(9, '2016_08_03_072750_create_cities_table', 1),
+(10, '2016_08_03_072804_create_districts_table', 1),
+(11, '2016_08_03_072819_create_villages_table', 1),
+(12, '2018_04_01_030457_create_currencies_table', 1),
+(13, '2018_10_15_013214_create_menus_table', 1),
+(14, '2018_10_15_030253_entrust_setup_tables', 1),
+(15, '2018_10_15_032350_create_login_histories_table', 1),
+(16, '2018_10_15_045420_create_settings_table', 1),
+(17, '2018_10_16_070240_create_divisions_tables', 1),
+(18, '2018_10_16_080743_create_departments_table', 1),
+(19, '2018_10_16_135407_create_customers_table', 1),
+(20, '2018_10_17_054955_create_systems_table', 1),
+(21, '2018_10_17_064820_create_suppliers_table', 1),
+(22, '2018_11_07_042209_create_sections_table', 1),
+(23, '2019_03_19_053027_create_pasiens_table', 1),
+(24, '2019_03_19_053645_create_pasien_datas_table', 1),
+(25, '2019_03_19_054653_create_doctors_table', 1),
+(26, '2019_03_21_082407_create_actions_table', 1),
+(27, '2019_04_02_060656_create_materials_table', 1),
+(28, '2019_04_02_081602_create_rooms_table', 1),
+(29, '2019_04_04_042329_create_levels_table', 1),
+(30, '2019_04_04_053204_create_companies_table', 1),
+(31, '2019_04_04_070045_create_inpatients_table', 1),
+(32, '2019_04_04_070254_create_outpatients_table', 1),
+(33, '2019_04_10_055127_create_diagnoses_table', 1),
+(34, '2019_05_02_082227_create_patient_exits_table', 1),
+(35, '2019_05_05_065322_create_examination_outpatients_table', 1),
+(36, '2019_05_07_044308_create_examination_outpatient_datas_table', 1),
+(37, '2019_05_14_041532_create_payments_table', 1),
+(38, '2019_05_21_062511_create_inpatient_payments_table', 1),
+(39, '2019_06_18_060002_create_examination_outpatient_details_table', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_access_tokens`
+--
+
+CREATE TABLE `oauth_access_tokens` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `client_id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `scopes` text COLLATE utf8mb4_unicode_ci,
+  `revoked` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `expires_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_auth_codes`
+--
+
+CREATE TABLE `oauth_auth_codes` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `client_id` int(10) UNSIGNED NOT NULL,
+  `scopes` text COLLATE utf8mb4_unicode_ci,
+  `revoked` tinyint(1) NOT NULL,
+  `expires_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_clients`
+--
+
+CREATE TABLE `oauth_clients` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secret` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `redirect` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `personal_access_client` tinyint(1) NOT NULL,
+  `password_client` tinyint(1) NOT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_personal_access_clients`
+--
+
+CREATE TABLE `oauth_personal_access_clients` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `client_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_refresh_tokens`
+--
+
+CREATE TABLE `oauth_refresh_tokens` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `access_token_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `expires_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `outpatients`
+--
+
+CREATE TABLE `outpatients` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `no_registrasi` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pasien_id` int(11) NOT NULL,
+  `tgl_periksa` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `poliklinik` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `doctor_id` int(11) NOT NULL,
+  `disease` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `complaint` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `outpatients`
+--
+
+INSERT INTO `outpatients` (`id`, `no_registrasi`, `pasien_id`, `tgl_periksa`, `poliklinik`, `doctor_id`, `disease`, `complaint`, `created_at`, `updated_at`) VALUES
+(1, '001', 2, '2019-07-22', 'Poli Gigi', 2, 'Sakit Gigi', 'Gigi Linu', '2019-07-21 23:20:54', '2019-07-25 00:30:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pasiens`
+--
+
+CREATE TABLE `pasiens` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `no_rm` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `allergy` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `another_note` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pasiens`
+--
+
+INSERT INTO `pasiens` (`id`, `no_rm`, `name`, `allergy`, `another_note`, `created_at`, `updated_at`) VALUES
+(1, '00000001', 'Ahmad Saefudin', 'Tidak Ada', 'Kepala Pusing', '2019-07-21 22:24:46', '2019-07-21 22:24:46'),
+(2, '00000002', 'Dadang Sukiman', 'Tidak Ada', 'Kurang Liburan', '2019-07-24 00:04:59', '2019-07-24 00:04:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pasien_datas`
+--
+
+CREATE TABLE `pasien_datas` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `pasien_id` int(11) NOT NULL,
+  `place` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date_of_birth` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gender` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `religion` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `education` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `work` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `blood_group` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `district_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `province_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `postal_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `identification_number` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `father_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mother_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `age` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `age_father` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `age_mother` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guardian_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guardian_address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `family_relationship` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pasien_datas`
+--
+
+INSERT INTO `pasien_datas` (`id`, `pasien_id`, `place`, `date_of_birth`, `gender`, `religion`, `education`, `work`, `status`, `blood_group`, `address`, `district_id`, `city_id`, `province_id`, `postal_code`, `identification_number`, `phone`, `father_name`, `mother_name`, `age`, `age_father`, `age_mother`, `guardian_name`, `guardian_address`, `family_relationship`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Bandung', '1996-07-07', 'Pria', 'islam', 'S1', 'Pegawai Negeri', 'Lajang', 'AB+', 'Jl. Test ABC No. 01', '3204040', '3204', '32', '40377', '33061244039', '081222333444', 'Dadang', 'Dedeh', '22', '47', '44', 'Diding', 'Jl. Test ABC No. 01', 'Paman', '2019-07-21 22:24:46', '2019-07-24 22:35:58'),
+(2, 2, 'Bandung', '1995-05-05', 'Pria', 'islam', 'S1', 'BUMN/BUMD', 'Lajang', 'AB+', 'Jl. Test ABC No. 01', '3273050', '3273', '32', '40377', '33066644123', '081333444555', 'Dudung', 'Dien', '23', '44', '42', 'Wawan', 'Jl. Test ABC No. 01', 'Paman', '2019-07-24 00:04:59', '2019-07-24 00:04:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `patient_exits`
+--
+
+CREATE TABLE `patient_exits` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `no_registrasi` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pasien_id` int(11) NOT NULL,
+  `kel` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `age` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tgl_masuk` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `room_id` int(11) NOT NULL,
+  `disease` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tgl_keluar` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time_keluar` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `way_out` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exit_state` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total_biaya` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `outpatient_id` int(11) NOT NULL,
+  `pasien_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total_biaya` int(11) NOT NULL,
+  `sisa_tagihan` int(11) NOT NULL,
+  `jumlah_dibayar` int(11) NOT NULL,
+  `tgl_bayar` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `diskon` int(11) NOT NULL,
+  `discount` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sisa_pembayaran` int(11) NOT NULL,
+  `payment` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ket` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `permissions`
+--
+
+CREATE TABLE `permissions` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `parent_id` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `permissions`
+--
+
+INSERT INTO `permissions` (`id`, `parent_id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
+(1, 0, 'dashboard', 'Dashboard', 'Dashboard', NULL, NULL),
+(2, 0, 'users', 'Users', 'Users', NULL, NULL),
+(3, 0, 'settings', 'Settings', 'Settings', '2019-06-26 02:44:59', '2019-06-26 02:44:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `permission_role`
+--
+
+CREATE TABLE `permission_role` (
+  `permission_id` int(10) UNSIGNED NOT NULL,
+  `role_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `permission_role`
+--
+
+INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
+(1, 1),
+(2, 1),
+(3, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `provinces`
+--
+
+CREATE TABLE `provinces` (
   `id` char(2) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `indonesia_provinces`
+-- Dumping data for table `provinces`
 --
 
-INSERT INTO `indonesia_provinces` (`id`, `name`) VALUES
+INSERT INTO `provinces` (`id`, `name`) VALUES
 ('11', 'ACEH'),
 ('12', 'SUMATERA UTARA'),
 ('13', 'SUMATERA BARAT'),
@@ -7872,20 +8530,218 @@ INSERT INTO `indonesia_provinces` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `indonesia_villages`
+-- Table structure for table `roles`
 --
 
-CREATE TABLE `indonesia_villages` (
+CREATE TABLE `roles` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'Admin', 'Admin', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `role_user`
+--
+
+CREATE TABLE `role_user` (
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `role_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `role_user`
+--
+
+INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
+(6, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rooms`
+--
+
+CREATE TABLE `rooms` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `level_id` int(11) NOT NULL,
+  `total_place_number` int(11) NOT NULL,
+  `place_resource` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `rooms`
+--
+
+INSERT INTO `rooms` (`id`, `code`, `name`, `level_id`, `total_place_number`, `place_resource`, `created_at`, `updated_at`) VALUES
+(1, 'R001', 'Kamar Melati', 1, 10, 10, '2019-07-21 22:42:05', '2019-07-23 00:32:07'),
+(2, 'R002', 'Kamar Mawar', 1, 10, 10, '2019-07-21 22:42:44', '2019-07-21 22:42:44'),
+(3, 'R003', 'Kamar Cempaka', 2, 10, 10, '2019-07-21 22:43:06', '2019-07-21 22:43:06'),
+(4, 'R004', 'Kamar Dahlia', 2, 10, 10, '2019-07-21 22:43:40', '2019-07-21 22:43:40');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sections`
+--
+
+CREATE TABLE `sections` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `section_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `section_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `department_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `system_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `system_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `system_val` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `suppliers`
+--
+
+CREATE TABLE `suppliers` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `supplier_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `supplier_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `supplier_address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `supplier_phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `supplier_email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `supplier_website` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `supplier_pic_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `supplier_pic_phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `supplier_pic_email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `suppliers`
+--
+
+INSERT INTO `suppliers` (`id`, `supplier_code`, `supplier_name`, `supplier_address`, `supplier_phone`, `supplier_email`, `supplier_website`, `supplier_pic_name`, `supplier_pic_phone`, `supplier_pic_email`, `created_at`, `updated_at`) VALUES
+(1, '001', 'Supplier A', 'Jl. Test ABC No.01', '081222555666', 'supplier_a@gmail.com', 'supplier.com', 'Denny', '081222555666', 'denny@gmail.com', '2019-07-21 23:32:44', '2019-07-21 23:32:44'),
+(2, '002', 'Supplier B', 'Jl. Test ABC No. 02', NULL, NULL, NULL, NULL, NULL, NULL, '2019-07-23 00:12:41', '2019-07-23 00:16:44'),
+(3, '003', 'Supplier C', 'Jl. Test ABC No. 03', NULL, NULL, NULL, NULL, NULL, NULL, '2019-07-23 00:15:45', '2019-07-23 00:15:45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `systems`
+--
+
+CREATE TABLE `systems` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `system_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `system_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `system_val` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `systems`
+--
+
+INSERT INTO `systems` (`id`, `system_type`, `system_code`, `system_val`, `created_at`, `updated_at`) VALUES
+(1, 'config_multiply', 'status', '0, Non Active;1, Active', NULL, NULL),
+(2, 'config_other', 'dir_key', 'ADMIN;PLANT', NULL, NULL),
+(3, 'config_multiply', 'religion', 'islam,Islam;kristen,Kristen;budha,Budha;kataolik,Katolik;hindu,Hindu;kepercayaan,Kepercayaan', NULL, NULL),
+(4, 'config_multiply', 'education', 'SD,SD;SMP,SMP;SMA,SMA;S1,S1;S2,S2', NULL, NULL),
+(5, 'config_multiply', 'gender', 'Pria,Laki Laki; Perempuan,Perempuan', NULL, NULL),
+(6, 'config_multiply', 'work', 'Pegawai Negeri,Pegawai Negeri;TNI/POLRI,TNI/POlRI;BUMN/BUMD,BUMN/BUMD;Guru,Guru;Pengusaha,Pengusaha,Karyawan Swasta,Karyawan Swasta;Petani,Petani;Peternak,Peternak;Wiraswasta,Wiraswasta', NULL, NULL),
+(7, 'config_multiply', 'blood_group', 'A-,A Rh-;A+,A Rh+;AB-,AB Rh-;AB+,AB Rh+;B-,B Rh-;B+,B Rh+;O-,O Rh-;O+,O Rh+', NULL, NULL),
+(8, 'config_multiply', 'poliklinik', 'Poli Klinik,Poli Klinik;Poli Bedah,Poli Bedah;Poli Anak, Poli Anak;Poli Gigi,Poli Gigi;Poli Kebidanan,Poli Kebidanan', NULL, NULL),
+(9, 'config_multiply', 'drug_class', 'AKS,Alat Kesehatan;BBK,Bahan Baku;GEN,Generik;NAR,Narkotika;NGN,Non Generik', NULL, NULL),
+(10, 'config_multiply', 'type_of_medicine', 'EXT,Penggunaan Luar;INF,Infus;INJ,Injeksi;ORA,Oral', NULL, NULL),
+(11, 'config_multiply', 'disease', '01,Paru-Paru;02,Kusta', NULL, NULL),
+(12, 'config_multiply', 'marital_status', 'Lajang,Lajang;Kawin,Kawin;Duda,Duda;Janda,Janda', NULL, NULL),
+(13, 'config_multiply', 'family_relationship', '01,Ayah/Ibu;02,Paman/Bibi;03,Kakak/Adik;04,Saudara', NULL, NULL),
+(14, 'config_multiply', 'entry_procedure', '01,Melalui Rawat Jalan;02,Melalui UGD;03,Kiriman Dokter;04,Rujukan RS Lain;05,Dari Puskesmas;06,Masuk Langsung', NULL, NULL),
+(15, 'config_multiply', 'payment', '01,Tunai/Sendiri;02,Askes;03,Tanggungan Perusahaan;04,Kartu Kredit', NULL, NULL),
+(16, 'config_multiply', 'discount', 'JAMST,Jamsostek;JPS,Jaring Pengaman Sos;KARY,Karyawan RS;PERSH,Perusahaan Langganan', NULL, NULL),
+(17, 'config_multiply', 'way_out', '01,Kemauan Sendiri;02,Pulang Paksa;03,Melarikan Diri', NULL, NULL),
+(18, 'config_multiply', 'exit_state', '01,Sembuh;02,Perbaikan;03,Masih Sakit;04,Meninggal Dunia', NULL, NULL),
+(19, 'config_other', 'person_in_charge', 'Orang Tua;Wali;Teman', NULL, '2019-07-23 23:41:17'),
+(20, 'config_other', 'entry_procedure', 'Rumah;Puskesmas', NULL, NULL),
+(21, 'config_multiply', 'type', '0, Tablet;1, Serbuk;2, Cair', '2019-07-21 23:28:53', '2019-07-21 23:29:29'),
+(22, 'config_multiply', 'group', '0, Generik;1, Non Generik', '2019-07-21 23:30:25', '2019-07-21 23:31:14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL,
+  `photo` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'img/pp.png',
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `department_id` int(11) DEFAULT NULL,
+  `division_id` int(11) DEFAULT NULL,
+  `direction` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `status`, `photo`, `remember_token`, `department_id`, `division_id`, `direction`, `created_at`, `updated_at`) VALUES
+(6, 'rifal', 'rifal@gmail.com', '$2y$10$ln1n4HexE7ghHvm1CddLeeGFFKjURDumc8.AdTJFzf89ws/2wxsPi', 1, 'img/pp.png', '4XPAma3pe4WTfMbElGLF7IogGdesgZ4FloP05K7CMz03j19JxDPRoLhGuIfg', 1, 1, NULL, '2019-06-26 02:24:42', '2019-07-23 22:35:17');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `villages`
+--
+
+CREATE TABLE `villages` (
   `id` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `district_id` char(7) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `indonesia_villages`
+-- Dumping data for table `villages`
 --
 
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1101010001', '1101010', 'LATIUNG'),
 ('1101010002', '1101010', 'LABUHAN BAJAU'),
 ('1101010003', '1101010', 'SUAK LAMATAN'),
@@ -9120,7 +9976,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1105140026', '1105140', 'LHOK GEULUMPANG'),
 ('1105140027', '1105140', 'BLANG BUKET'),
 ('1105140028', '1105140', 'SEUNEUBOK TUHA II');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1105140029', '1105140', 'KEMUNING II'),
 ('1105140030', '1105140', 'BUKET TUALANG'),
 ('1105140031', '1105140', 'BAGOK PANAH IV'),
@@ -10378,7 +11234,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1108100023', '1108100', 'DILIP BUKTI'),
 ('1108100024', '1108100', 'REUHAT TUHA'),
 ('1108100025', '1108100', 'SEUMEUREUNG');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1108100026', '1108100', 'LUTHU DAYAH KRUENG'),
 ('1108100027', '1108100', 'LAMTANJONG'),
 ('1108100028', '1108100', 'LAMBIRAH'),
@@ -11628,7 +12484,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1110070025', '1110070', 'TANOH ANOE'),
 ('1110070026', '1110070', 'TANJONGAN'),
 ('1110070027', '1110070', 'JANGKA ALUE BIE');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1110070028', '1110070', 'JANGKA MESJID'),
 ('1110070029', '1110070', 'JANGKA ALUE U'),
 ('1110070030', '1110070', 'PANTE PEUSANGAN'),
@@ -12864,7 +13720,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1112060005', '1112060', 'ALUE JERJAK'),
 ('1112060006', '1112060', 'BLANG DALAM'),
 ('1112060007', '1112060', 'ALUE PEUNAWA');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1112060008', '1112060', 'SIMPANG GADENG'),
 ('1112060009', '1112060', 'TELADAN JAYA'),
 ('1112060010', '1112060', 'BLANG RAJA'),
@@ -14112,9 +14968,9 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1171012006', '1171012', 'PEUNYEURAT'),
 ('1171012007', '1171012', 'LAM LAGANG'),
 ('1171012008', '1171012', 'GEUCEU KOMPLEK'),
-('1171012009', '1171012', 'GEUCEU INIEM');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
-('1171012010', '1171012', 'GEUCEU KAYEE JATO'),
+('1171012009', '1171012', 'GEUCEU INIEM'),
+('1171012010', '1171012', 'GEUCEU KAYEE JATO');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1171020001', '1171020', 'ATEUK JAWO'),
 ('1171020007', '1171020', 'ATEUK DEAH TANOH'),
 ('1171020008', '1171020', 'ATEUK PAHLAWAN'),
@@ -15342,9 +16198,9 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1204060011', '1204060', 'FAJAR'),
 ('1204060012', '1204060', 'PEARAJA'),
 ('1204060013', '1204060', 'NAI POS POS BARAT'),
-('1204060021', '1204060', 'RIANIATE');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
-('1204060023', '1204060', 'DOLOK PANTIS'),
+('1204060021', '1204060', 'RIANIATE'),
+('1204060023', '1204060', 'DOLOK PANTIS');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1204060024', '1204060', 'TELUK ROBAN'),
 ('1204060025', '1204060', 'SORKAM KIRI'),
 ('1204060026', '1204060', 'SORKAM TENGAH'),
@@ -16551,9 +17407,9 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1209170007', '1209170', 'JAWA BARU'),
 ('1209170008', '1209170', 'PULO BAYU'),
 ('1209170009', '1209170', 'HUTA BAYU'),
-('1209170010', '1209170', 'SILAK KIDIR');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
-('1209170011', '1209170', 'BOSAR BAYU'),
+('1209170010', '1209170', 'SILAK KIDIR'),
+('1209170011', '1209170', 'BOSAR BAYU');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1209170012', '1209170', 'MANCUK'),
 ('1209170015', '1209170', 'MALIGAS BAYU'),
 ('1209170016', '1209170', 'RAJA MALIGAS'),
@@ -17791,10 +18647,10 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1214011006', '1214011', 'BAWO ORUDUA'),
 ('1214011007', '1214011', 'HALE BALUTA'),
 ('1214011008', '1214011', 'BAWO OFULOA'),
-('1214011009', '1214011', 'BALUTA');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('1214011009', '1214011', 'BALUTA'),
 ('1214011010', '1214011', 'EHO BALUTA'),
-('1214011011', '1214011', 'HILIGEHO SOGAWU'),
+('1214011011', '1214011', 'HILIGEHO SOGAWU');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1214011012', '1214011', 'HILIOMASIO'),
 ('1214020028', '1214020', 'SIFITU EWALI'),
 ('1214020029', '1214020', 'RAPA RAPA'),
@@ -19028,11 +19884,11 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1220030019', '1220030', 'NAPA LOMBANG'),
 ('1220030020', '1220030', 'HOTANG SASA'),
 ('1220030021', '1220030', 'BARA'),
-('1220030022', '1220030', 'SIMANDI ANGIN');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('1220030022', '1220030', 'SIMANDI ANGIN'),
 ('1220030023', '1220030', 'BAHAL'),
 ('1220030024', '1220030', 'PASIR PINANG'),
-('1220030025', '1220030', 'PORTIBI JAE'),
+('1220030025', '1220030', 'PORTIBI JAE');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1220030026', '1220030', 'PORTIBI JULU'),
 ('1220030027', '1220030', 'GUMARUPU BARU'),
 ('1220030028', '1220030', 'BALANGKA TOROP'),
@@ -20263,11 +21119,11 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1275150008', '1275150', 'PULO BRAYAN DARAT I'),
 ('1275150009', '1275150', 'PULO BRAYAN DARAT II'),
 ('1275150010', '1275150', 'PULO BRAYAN BENGKEL BARU'),
-('1275150011', '1275150', 'PULO BRAYAN BENGKEL');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('1275150011', '1275150', 'PULO BRAYAN BENGKEL'),
 ('1275160001', '1275160', 'PANDAU HILIR'),
 ('1275160002', '1275160', 'SEI KERA HULU'),
-('1275160003', '1275160', 'PAHLAWAN'),
+('1275160003', '1275160', 'PAHLAWAN');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1275160004', '1275160', 'SEI KERA HILIR I'),
 ('1275160005', '1275160', 'SEI KERA HILIR II'),
 ('1275160006', '1275160', 'SIDORAME TIMUR'),
@@ -21471,11 +22327,11 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1373040001', '1373040', 'SIKALANG'),
 ('1373040002', '1373040', 'RANTIH'),
 ('1373040003', '1373040', 'SALAK'),
-('1373040004', '1373040', 'SIJANTANG KOTO');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('1373040004', '1373040', 'SIJANTANG KOTO'),
 ('1373040005', '1373040', 'TALAWI HILIR'),
 ('1373040006', '1373040', 'TALAWI MUDIK'),
-('1373040007', '1373040', 'BUKIK GADANG'),
+('1373040007', '1373040', 'BUKIK GADANG');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1373040008', '1373040', 'BATU TANJUNG'),
 ('1373040009', '1373040', 'KUMBAYAU'),
 ('1373040010', '1373040', 'DATAR MANSIANG'),
@@ -22694,12 +23550,12 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1406041019', '1406041', 'RIMBA JAYA'),
 ('1406042001', '1406042', 'SEKIJANG'),
 ('1406042002', '1406042', 'TEBING LESTARI'),
-('1406042003', '1406042', 'KIJANG JAYA');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('1406042003', '1406042', 'KIJANG JAYA'),
 ('1406042004', '1406042', 'TANAH TINGGI'),
 ('1406042005', '1406042', 'TAPUNG MAKMUR'),
 ('1406042006', '1406042', 'TAPUNG LESTARI'),
-('1406042007', '1406042', 'KOTA GARO'),
+('1406042007', '1406042', 'KOTA GARO');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1406042008', '1406042', 'SUKA MAJU'),
 ('1406042009', '1406042', 'KOTA BARU'),
 ('1406042010', '1406042', 'KOTO BANGUN'),
@@ -23912,12 +24768,12 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1502051002', '1502051', 'DURIAN BATAKUK'),
 ('1502051003', '1502051', 'MUARO PANCO BARAT'),
 ('1502051004', '1502051', 'PARIT UJUNG TANJUNG'),
-('1502051005', '1502051', 'GUGUK');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('1502051005', '1502051', 'GUGUK'),
 ('1502051006', '1502051', 'MUARA BANTAN'),
 ('1502051007', '1502051', 'MARKEH'),
 ('1502051008', '1502051', 'AIR BATU'),
-('1502051009', '1502051', 'MUARO PANCO TIMUR'),
+('1502051009', '1502051', 'MUARO PANCO TIMUR');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1502051010', '1502051', 'SIMPANG PARIT'),
 ('1502051011', '1502051', 'MARUS JAYA'),
 ('1502051012', '1502051', 'RENAH MEDAN'),
@@ -25141,13 +25997,13 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1601090029', '1601090', 'PANJI JAYA'),
 ('1601090030', '1601090', 'MAKARTI JAYA'),
 ('1601090031', '1601090', 'MAKARTI TAMA'),
-('1601090032', '1601090', 'PENILIKAN/MITRA OGAN');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('1601090032', '1601090', 'PENILIKAN/MITRA OGAN'),
 ('1601090033', '1601090', 'PENINJAUAN'),
 ('1601090034', '1601090', 'SAUNG NAGA'),
 ('1601090035', '1601090', 'MITRA KENCANA'),
 ('1601090044', '1601090', 'KARANG DAPO'),
-('1601091001', '1601091', 'MERBAU'),
+('1601091001', '1601091', 'MERBAU');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1601091002', '1601091', 'GUNUNG MERAKSA'),
 ('1601091003', '1601091', 'KURUP'),
 ('1601091004', '1601091', 'BANU AYU'),
@@ -26393,13 +27249,13 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1606020032', '1606020', 'SUGIWARAS'),
 ('1606020033', '1606020', 'SUGI RAYA'),
 ('1606020034', '1606020', 'SEREKA'),
-('1606020035', '1606020', 'SRI MULYO');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('1606020035', '1606020', 'SRI MULYO'),
 ('1606020036', '1606020', 'SUNGAI ANGIT'),
 ('1606020037', '1606020', 'BANGUN SARI'),
 ('1606020038', '1606020', 'PANGKALAN JAYA'),
 ('1606021001', '1606021', 'PENGATURAN'),
-('1606021002', '1606021', 'PINGGAP'),
+('1606021002', '1606021', 'PINGGAP');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1606021003', '1606021', 'TANAH ABANG'),
 ('1606021004', '1606021', 'TALANG LEBAN'),
 ('1606021005', '1606021', 'SAUD'),
@@ -27627,13 +28483,13 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1610041009', '1610041', 'SEJANGKO II'),
 ('1610041010', '1610041', 'RANTAU PANJANG ULU'),
 ('1610041011', '1610041', 'KETAPANG II'),
-('1610041012', '1610041', 'ARISAN DERAS');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('1610041012', '1610041', 'ARISAN DERAS'),
 ('1610042001', '1610042', 'TANJUNG SERIAN'),
 ('1610042002', '1610042', 'TALANG DUKUN'),
 ('1610042003', '1610042', 'SUNGAI PINANG III'),
 ('1610042004', '1610042', 'SUNGAI PINANG'),
-('1610042005', '1610042', 'SUNGAI PINANG II'),
+('1610042005', '1610042', 'SUNGAI PINANG II');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1610042006', '1610042', 'SERIJABO'),
 ('1610042007', '1610042', 'PENYANDINGAN'),
 ('1610042008', '1610042', 'PINANG JAYA'),
@@ -28870,14 +29726,14 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1704020002', '1704020', 'AIR LONG'),
 ('1704020003', '1704020', 'LINAU'),
 ('1704020004', '1704020', 'WAY HAWANG'),
-('1704020005', '1704020', 'TANJUNG BARU');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('1704020005', '1704020', 'TANJUNG BARU'),
 ('1704020006', '1704020', 'PENYANDINGAN'),
 ('1704020007', '1704020', 'TANJUNG AUR'),
 ('1704020008', '1704020', 'KEDATARAN'),
 ('1704020009', '1704020', 'TANJUNG GANTI'),
 ('1704020011', '1704020', 'BENTENG HARAPAN'),
-('1704020012', '1704020', 'SUKA MENANTI'),
+('1704020012', '1704020', 'SUKA MENANTI');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1704020013', '1704020', 'SINAR MULYA'),
 ('1704020014', '1704020', 'BAKAL MAKMUR'),
 ('1704020015', '1704020', 'MUARA JAYA'),
@@ -30116,15 +30972,15 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1802031003', '1802031', 'KARANGREJO'),
 ('1802031004', '1802031', 'PAGARALAM ULUBELU'),
 ('1802031005', '1802031', 'MUARADUA ULUBELU'),
-('1802031006', '1802031', 'NGARIP');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('1802031006', '1802031', 'NGARIP'),
 ('1802031007', '1802031', 'PENANTIAN ULUBELU'),
 ('1802031008', '1802031', 'GUNUNGSARI'),
 ('1802031009', '1802031', 'SIRNAGALIH'),
 ('1802031010', '1802031', 'ULU SEMONG'),
 ('1802031011', '1802031', 'REJOSARI'),
 ('1802031012', '1802031', 'SUKAMAJU'),
-('1802031013', '1802031', 'TANJUNG BARU'),
+('1802031013', '1802031', 'TANJUNG BARU');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1802031014', '1802031', 'SINAR BANTEN'),
 ('1802031015', '1802031', 'AIR ABANG'),
 ('1802031016', '1802031', 'PETAY KAYU'),
@@ -31360,8 +32216,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1806082007', '1806082', 'NEGARA BUMI'),
 ('1806082008', '1806082', 'MELUNGUN RATU'),
 ('1807010001', '1807010', 'JUKU BATU'),
-('1807010002', '1807010', 'BANDAR AGUNG');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('1807010002', '1807010', 'BANDAR AGUNG'),
 ('1807010003', '1807010', 'SUMBER SARI'),
 ('1807010004', '1807010', 'BONGLAI'),
 ('1807010005', '1807010', 'CAMPANG DELAPAN'),
@@ -31369,7 +32224,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1807010007', '1807010', 'SUMBER BARU'),
 ('1807010008', '1807010', 'NEKI'),
 ('1807010009', '1807010', 'RANTAU TEMIANG'),
-('1807010010', '1807010', 'MENANGA SIAMANG'),
+('1807010010', '1807010', 'MENANGA SIAMANG');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1807010011', '1807010', 'MENANGA JAYA'),
 ('1807010012', '1807010', 'REBANG TINGGI'),
 ('1807010013', '1807010', 'ARGOMULYO'),
@@ -32602,8 +33458,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1902062008', '1902062', 'SUNGAI PADANG'),
 ('1902062009', '1902062', 'TANJONG TINGGI'),
 ('1902062010', '1902062', 'PELEPAK  PUTE'),
-('1902063001', '1902063', 'SUAK GUAL');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('1902063001', '1902063', 'SUAK GUAL'),
 ('1902063002', '1902063', 'PETALING'),
 ('1902063003', '1902063', 'SELAT NASIK'),
 ('1902063004', '1902063', 'PULAU GERSIK'),
@@ -32612,7 +33467,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('1903010012', '1903010', 'SINAR SARI'),
 ('1903010013', '1903010', 'KELAPA'),
 ('1903010014', '1903010', 'BERUAS'),
-('1903010015', '1903010', 'PUSUK'),
+('1903010015', '1903010', 'PUSUK');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1903010016', '1903010', 'TEBING'),
 ('1903010017', '1903010', 'AIR BULIN'),
 ('1903010018', '1903010', 'DENDANG'),
@@ -33890,8 +34746,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3201240016', '3201240', 'BOJONG INDAH'),
 ('3201240017', '3201240', 'COGREG'),
 ('3201241001', '3201241', 'KARIHKIL'),
-('3201241002', '3201241', 'CIBEUTEUNG UDIK');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3201241002', '3201241', 'CIBEUTEUNG UDIK'),
 ('3201241003', '3201241', 'BABAKAN'),
 ('3201241004', '3201241', 'PUTAT NUTUG'),
 ('3201241005', '3201241', 'CIBEUTEUNG MUARA'),
@@ -33900,7 +34755,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3201241008', '3201241', 'CISEENG'),
 ('3201241009', '3201241', 'CIHOWE'),
 ('3201241010', '3201241', 'KURIPAN'),
-('3201250001', '3201250', 'JAMPANG'),
+('3201250001', '3201250', 'JAMPANG');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3201250002', '3201250', 'CIBADUNG'),
 ('3201250003', '3201250', 'CIBINONG'),
 ('3201250004', '3201250', 'CIDOKOM'),
@@ -35197,8 +36053,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3205160001', '3205160', 'SUKAWARGI'),
 ('3205160002', '3205160', 'SUKATANI'),
 ('3205160003', '3205160', 'CIDATAR'),
-('3205160004', '3205160', 'CISERO');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3205160004', '3205160', 'CISERO'),
 ('3205160005', '3205160', 'CISURUPAN'),
 ('3205160006', '3205160', 'KARAMATWANGI'),
 ('3205160007', '3205160', 'BALEWANGI'),
@@ -35207,7 +36062,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3205160010', '3205160', 'SIRNAGALIH'),
 ('3205160011', '3205160', 'PAKUWON'),
 ('3205160012', '3205160', 'SIMPANGSARI'),
-('3205160013', '3205160', 'PANGAUBAN'),
+('3205160013', '3205160', 'PANGAUBAN');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3205160014', '3205160', 'CIPAGANTI'),
 ('3205160015', '3205160', 'PAMULIHAN'),
 ('3205160016', '3205160', 'SITUSARI'),
@@ -36501,8 +37357,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3209031006', '3209031', 'KALIMUKTI'),
 ('3209031007', '3209031', 'PABEDILAN KALER'),
 ('3209031008', '3209031', 'BABAKAN LOSARI LOR'),
-('3209031009', '3209031', 'PABEDILAN KIDUL');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3209031009', '3209031', 'PABEDILAN KIDUL'),
 ('3209031010', '3209031', 'PABEDILAN KULON'),
 ('3209031011', '3209031', 'PABEDILAN WETAN'),
 ('3209031012', '3209031', 'TERSANA'),
@@ -36511,7 +37366,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3209040002', '3209040', 'SERANG WETAN'),
 ('3209040003', '3209040', 'BOJONGGEBANG'),
 ('3209040004', '3209040', 'KUDUKERAS'),
-('3209040005', '3209040', 'SUMBER KIDUL'),
+('3209040005', '3209040', 'SUMBER KIDUL');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3209040006', '3209040', 'KUDUMULYA'),
 ('3209040007', '3209040', 'SUMBER LOR'),
 ('3209040008', '3209040', 'BABAKAN'),
@@ -37805,8 +38661,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3212220004', '3212220', 'TEGALTAMAN'),
 ('3212220005', '3212220', 'SUKRAWETAN'),
 ('3212220006', '3212220', 'SUMURADEM'),
-('3212220007', '3212220', 'SUMURADEM TIMUR');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3212220007', '3212220', 'SUMURADEM TIMUR'),
 ('3212220008', '3212220', 'KARANGLAYUNG'),
 ('3212221001', '3212221', 'LIMPAS'),
 ('3212221002', '3212221', 'PATROL'),
@@ -37816,7 +38671,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3212221006', '3212221', 'PATROLLOR'),
 ('3212221007', '3212221', 'PATROL BARU'),
 ('3212221008', '3212221', 'MEKARSARI'),
-('3213010003', '3213010', 'SUKAMANDI'),
+('3213010003', '3213010', 'SUKAMANDI');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3213010004', '3213010', 'CICADAS'),
 ('3213010005', '3213010', 'SAGALAHERANG'),
 ('3213010006', '3213010', 'DAYEUHKOLOT'),
@@ -39101,8 +39957,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3272020003', '3272020', 'CITAMIANG'),
 ('3272020004', '3272020', 'NANGGELENG'),
 ('3272020005', '3272020', 'TIPAR'),
-('3272030001', '3272030', 'DAYEUHLUHUR');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3272030001', '3272030', 'DAYEUHLUHUR'),
 ('3272030002', '3272030', 'WARUDOYONG'),
 ('3272030003', '3272030', 'NYOMPLONG'),
 ('3272030004', '3272030', 'BENTENG'),
@@ -39112,7 +39967,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3272040003', '3272040', 'SRIWIDARI'),
 ('3272040004', '3272040', 'KARAMAT'),
 ('3272050001', '3272050', 'GUNUNG PARANG'),
-('3272050002', '3272050', 'KEBONJATI'),
+('3272050002', '3272050', 'KEBONJATI');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3272050003', '3272050', 'CIKOLE'),
 ('3272050004', '3272050', 'SELABATU'),
 ('3272050005', '3272050', 'CISARUA'),
@@ -40400,8 +41256,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3304030003', '3304030', 'KEBANARAN'),
 ('3304030004', '3304030', 'KALIWUNGU'),
 ('3304030005', '3304030', 'SOMAWANGI'),
-('3304030006', '3304030', 'JALATUNDA');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3304030006', '3304030', 'JALATUNDA'),
 ('3304030007', '3304030', 'KEBAKALAN'),
 ('3304030008', '3304030', 'MANDIRAJA WETAN'),
 ('3304030009', '3304030', 'MANDIRAJA KULON'),
@@ -40412,7 +41267,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3304030014', '3304030', 'PURWASABA'),
 ('3304030015', '3304030', 'BLIMBING'),
 ('3304030016', '3304030', 'PANGGISARI'),
-('3304040001', '3304040', 'KALITENGAH'),
+('3304040001', '3304040', 'KALITENGAH');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3304040002', '3304040', 'PETIR'),
 ('3304040003', '3304040', 'KALIAJIR'),
 ('3304040004', '3304040', 'KARANGANYAR'),
@@ -41718,8 +42574,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3307051013', '3307051', 'PUCUNGWETAN'),
 ('3307051014', '3307051', 'TLOGO'),
 ('3307051015', '3307051', 'KALIBENING'),
-('3307051016', '3307051', 'GARUNGLOR');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3307051016', '3307051', 'GARUNGLOR'),
 ('3307051017', '3307051', 'JEBENGPLAMPITAN'),
 ('3307060001', '3307060', 'KECIS'),
 ('3307060002', '3307060', 'KALIPUTIH'),
@@ -41731,7 +42586,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3307060008', '3307060', 'PAKUNCEN'),
 ('3307060009', '3307060', 'SELOMERTO'),
 ('3307060010', '3307060', 'SUMBERWULAN'),
-('3307060011', '3307060', 'PLOBANGAN'),
+('3307060011', '3307060', 'PLOBANGAN');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3307060012', '3307060', 'SIMBAREJO'),
 ('3307060013', '3307060', 'WULUNGSARI'),
 ('3307060014', '3307060', 'BUMITIRTO'),
@@ -43073,8 +43929,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3311120005', '3311120', 'NGADIREJO'),
 ('3311120006', '3311120', 'KARTASURA'),
 ('3311120007', '3311120', 'PUCANGAN'),
-('3311120008', '3311120', 'KERTONATAN');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3311120008', '3311120', 'KERTONATAN'),
 ('3311120009', '3311120', 'WIROGUNAN'),
 ('3311120010', '3311120', 'NGABEYAN'),
 ('3311120011', '3311120', 'SINGOPURAN'),
@@ -43087,7 +43942,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3312010006', '3312010', 'SUCI'),
 ('3312010007', '3312010', 'JIMBAR'),
 ('3312010008', '3312010', 'SAMBIROTO'),
-('3312010009', '3312010', 'PRACIMANTORO'),
+('3312010009', '3312010', 'PRACIMANTORO');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3312010010', '3312010', 'GEDONG'),
 ('3312010011', '3312010', 'GEBANGHARJO'),
 ('3312010012', '3312010', 'SEDAYU'),
@@ -44421,8 +45277,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3317050021', '3317050', 'BAJINGJOWO'),
 ('3317050022', '3317050', 'BAJINGMEDURO'),
 ('3317050023', '3317050', 'SARANGMEDURO'),
-('3317060001', '3317060', 'NGULAHAN');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3317060001', '3317060', 'NGULAHAN'),
 ('3317060002', '3317060', 'PACING'),
 ('3317060003', '3317060', 'KARAS'),
 ('3317060004', '3317060', 'MOJOSARI'),
@@ -44435,7 +45290,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3317060011', '3317060', 'KEDUNGRINGIN'),
 ('3317060012', '3317060', 'GANDRIROJO'),
 ('3317060013', '3317060', 'CANDIMULYO'),
-('3317060014', '3317060', 'LEMAHPUTIH'),
+('3317060014', '3317060', 'LEMAHPUTIH');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3317060015', '3317060', 'KUMBO'),
 ('3317060016', '3317060', 'DADAPAN'),
 ('3317060017', '3317060', 'SAMBONG'),
@@ -45755,8 +46611,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3322100005', '3322100', 'KUPANG'),
 ('3322100006', '3322100', 'LODOYONG'),
 ('3322100007', '3322100', 'KRANGGAN'),
-('3322100008', '3322100', 'PANJANG');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3322100008', '3322100', 'PANJANG'),
 ('3322100009', '3322100', 'PASEKAN'),
 ('3322100010', '3322100', 'BARAN'),
 ('3322101001', '3322101', 'MLILIR'),
@@ -45770,7 +46625,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3322101009', '3322101', 'PAKOPEN'),
 ('3322101010', '3322101', 'SIDOMUKTI'),
 ('3322110001', '3322110', 'DOPLANG'),
-('3322110002', '3322110', 'BAWEN'),
+('3322110002', '3322110', 'BAWEN');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3322110003', '3322110', 'ASINAN'),
 ('3322110004', '3322110', 'POLOSIRI'),
 ('3322110005', '3322110', 'KANDANGAN'),
@@ -47082,8 +47938,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3327080017', '3327080', 'LAWANGREJO'),
 ('3327080018', '3327080', 'SUGIHWARAS'),
 ('3327080019', '3327080', 'WIDURI'),
-('3327080020', '3327080', 'DANASARI');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3327080020', '3327080', 'DANASARI'),
 ('3327090001', '3327090', 'PENGGARIT'),
 ('3327090002', '3327090', 'PENER'),
 ('3327090003', '3327090', 'GONDANG'),
@@ -47097,7 +47952,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3327090011', '3327090', 'BANJARDAWA'),
 ('3327090012', '3327090', 'BANJARAN'),
 ('3327090013', '3327090', 'SITEMU'),
-('3327090014', '3327090', 'PEDURUNGAN'),
+('3327090014', '3327090', 'PEDURUNGAN');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3327090015', '3327090', 'TAMAN'),
 ('3327090016', '3327090', 'WANAREJAN SELATAN'),
 ('3327090017', '3327090', 'WANAREJAN UTARA'),
@@ -48393,8 +49249,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3404010001', '3404010', 'SUMBERRAHAYU'),
 ('3404010002', '3404010', 'SUMBERSARI'),
 ('3404010003', '3404010', 'SUMBER AGUNG'),
-('3404010004', '3404010', 'SUMBERARUM');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3404010004', '3404010', 'SUMBERARUM'),
 ('3404020001', '3404020', 'SENDANG MULYO'),
 ('3404020002', '3404020', 'SENDANG ARUM'),
 ('3404020003', '3404020', 'SENDANG REJO'),
@@ -48408,7 +49263,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3404040001', '3404040', 'SIDOREJO'),
 ('3404040002', '3404040', 'SIDOLUHUR'),
 ('3404040003', '3404040', 'SIDOMULYO'),
-('3404040004', '3404040', 'SIDOAGUNG'),
+('3404040004', '3404040', 'SIDOAGUNG');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3404040005', '3404040', 'SIDOKARTO'),
 ('3404040006', '3404040', 'SIDOARUM'),
 ('3404040007', '3404040', 'SIDOMOYO'),
@@ -49738,8 +50594,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3506040012', '3506040', 'KRANDANG'),
 ('3506040013', '3506040', 'KANIGORO'),
 ('3506040014', '3506040', 'BANJARANYAR'),
-('3506040015', '3506040', 'PURWODADI');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3506040015', '3506040', 'PURWODADI'),
 ('3506040016', '3506040', 'JAMBEAN'),
 ('3506050001', '3506050', 'JEMEKAN'),
 ('3506050002', '3506050', 'SRIKATON'),
@@ -49755,7 +50610,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3506060001', '3506060', 'SUMBERJO'),
 ('3506060002', '3506060', 'KARANGREJO'),
 ('3506060003', '3506060', 'SELOSARI'),
-('3506060004', '3506060', 'KANDAT'),
+('3506060004', '3506060', 'KANDAT');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3506060005', '3506060', 'CENDONO'),
 ('3506060006', '3506060', 'RINGINSARI'),
 ('3506060007', '3506060', 'TEGALAN'),
@@ -51064,8 +51920,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3510200002', '3510200', 'PESUCEN'),
 ('3510200003', '3510200', 'TELEMUNG'),
 ('3510200004', '3510200', 'KELIR'),
-('3510200005', '3510200', 'KALIPURO');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3510200005', '3510200', 'KALIPURO'),
 ('3510200006', '3510200', 'KLATAK'),
 ('3510200007', '3510200', 'KETAPANG'),
 ('3510200008', '3510200', 'GOMBENG SARI'),
@@ -51081,7 +51936,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3510210009', '3510210', 'BAJULMATI'),
 ('3510210010', '3510210', 'WATUKEBO'),
 ('3510210011', '3510210', 'SUMBERANYAR'),
-('3510210012', '3510210', 'BIMOREJO'),
+('3510210012', '3510210', 'BIMOREJO');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3511010001', '3511010', 'SUCOLOR'),
 ('3511010002', '3511010', 'PUJERBARU'),
 ('3511010003', '3511010', 'TANAHWULAN'),
@@ -52375,8 +53231,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3515130002', '3515130', 'PEPE'),
 ('3515130003', '3515130', 'BUNCITAN'),
 ('3515130004', '3515130', 'KALANGANYAR'),
-('3515130005', '3515130', 'TAMBAK CEMANDI');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3515130005', '3515130', 'TAMBAK CEMANDI'),
 ('3515130006', '3515130', 'GISIK CEMANDI'),
 ('3515130007', '3515130', 'CEMANDI'),
 ('3515130008', '3515130', 'PULUNGAN'),
@@ -52393,7 +53248,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3515140003', '3515140', 'WARU'),
 ('3515140004', '3515140', 'KUREKSARI'),
 ('3515140005', '3515140', 'NGINGAS'),
-('3515140006', '3515140', 'TROPODO'),
+('3515140006', '3515140', 'TROPODO');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3515140007', '3515140', 'TAMBAK SAWAH'),
 ('3515140008', '3515140', 'TAMBAK REJO'),
 ('3515140009', '3515140', 'TAMBAK OSO'),
@@ -53704,8 +54560,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3520071003', '3520071', 'DURENAN'),
 ('3520071004', '3520071', 'SAMBIROBYONG'),
 ('3520071005', '3520071', 'CAMPURSARI'),
-('3520071006', '3520071', 'KALANG');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3520071006', '3520071', 'KALANG'),
 ('3520071007', '3520071', 'WIDOROKANDANG'),
 ('3520071008', '3520071', 'SIDOKERTO'),
 ('3520071009', '3520071', 'SUMBERSAWIT'),
@@ -53723,7 +54578,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3520080014', '3520080', 'BEDAGUNG'),
 ('3520080015', '3520080', 'NGILIRAN'),
 ('3520080016', '3520080', 'JABUNG'),
-('3520080017', '3520080', 'REJOMULYO'),
+('3520080017', '3520080', 'REJOMULYO');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3520080018', '3520080', 'TURI'),
 ('3520080019', '3520080', 'SIDOWAYAH'),
 ('3520080020', '3520080', 'BANJAREJO'),
@@ -55044,8 +55900,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3524140018', '3524140', 'JATIREJO'),
 ('3524140019', '3524140', 'TAMBAKRIGADUNG'),
 ('3524141001', '3524141', 'KEDUNGKUMPUL'),
-('3524141002', '3524141', 'DERMOLEMAHBANG');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3524141002', '3524141', 'DERMOLEMAHBANG'),
 ('3524141003', '3524141', 'GEMPOLTUKMLOKO'),
 ('3524141004', '3524141', 'SARIREJO'),
 ('3524141005', '3524141', 'TAMBAKMENJANGAN'),
@@ -55063,7 +55918,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3524150008', '3524150', 'SIDOBINANGUN'),
 ('3524150009', '3524150', 'SUGIHWARAS'),
 ('3524150010', '3524150', 'SIDOREJO'),
-('3524150011', '3524150', 'DLANGGU'),
+('3524150011', '3524150', 'DLANGGU');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3524150012', '3524150', 'DINOYO'),
 ('3524150013', '3524150', 'BABATAGUNG'),
 ('3524150014', '3524150', 'TUKKERTO'),
@@ -56363,8 +57219,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3529070010', '3529070', 'PARSANGA'),
 ('3529070011', '3529070', 'BANGKAL'),
 ('3529070012', '3529070', 'PANGARANGAN'),
-('3529070013', '3529070', 'KEPANJIN');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3529070013', '3529070', 'KEPANJIN'),
 ('3529070014', '3529070', 'PAJAGALAN'),
 ('3529070015', '3529070', 'BANGSELOK'),
 ('3529070016', '3529070', 'KARANGDUAK'),
@@ -56382,7 +57237,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3529080001', '3529080', 'BILAPORA REBA'),
 ('3529080002', '3529080', 'MONCEK BARAT'),
 ('3529080003', '3529080', 'MONCEK TENGAH'),
-('3529080004', '3529080', 'MONCEK TIMUR'),
+('3529080004', '3529080', 'MONCEK TIMUR');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3529080005', '3529080', 'BANARESEP BARAT'),
 ('3529080006', '3529080', 'LEMBUNG BARAT'),
 ('3529080007', '3529080', 'LEMBUNG TIMUR'),
@@ -57664,8 +58520,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3602170011', '3602170', 'BOJONGCAE'),
 ('3602170012', '3602170', 'KADUAGUNG TENGAH'),
 ('3602170013', '3602170', 'MEKAR AGUNG'),
-('3602170014', '3602170', 'ASEM MARGALUYU');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('3602170014', '3602170', 'ASEM MARGALUYU'),
 ('3602170015', '3602170', 'CIMENTENG JAYA'),
 ('3602180007', '3602180', 'PASIR TANJUNG'),
 ('3602180008', '3602180', 'RANGKASBITUNG TIMUR'),
@@ -57681,7 +58536,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('3602180018', '3602180', 'PABUARAN'),
 ('3602180019', '3602180', 'CIJORO PASIR'),
 ('3602180020', '3602180', 'CIJORO LEBAK'),
-('3602180021', '3602180', 'MUARA CIUJUNG BARAT'),
+('3602180021', '3602180', 'MUARA CIUJUNG BARAT');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3602180022', '3602180', 'NARIMBANG MULIA'),
 ('3602181001', '3602181', 'CILANGKAP'),
 ('3602181002', '3602181', 'PASIR KUPA'),
@@ -58977,8 +59833,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('5106030001', '5106030', 'JEHEM'),
 ('5106030002', '5106030', 'TEMBUKU'),
 ('5106030003', '5106030', 'YANGAPI'),
-('5106030004', '5106030', 'UNDISAN');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('5106030004', '5106030', 'UNDISAN'),
 ('5106030005', '5106030', 'BANGBANG'),
 ('5106030006', '5106030', 'PENINJOAN'),
 ('5106040001', '5106040', 'MENGANI'),
@@ -58996,7 +59851,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('5106040013', '5106040', 'BONYOH'),
 ('5106040014', '5106040', 'SEKAAN'),
 ('5106040015', '5106040', 'BAYUNG GEDE'),
-('5106040016', '5106040', 'SEKARDADI'),
+('5106040016', '5106040', 'SEKARDADI');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('5106040017', '5106040', 'KEDISAN'),
 ('5106040018', '5106040', 'BUAHAN'),
 ('5106040019', '5106040', 'SUTER'),
@@ -60306,8 +61162,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('5207050005', '5207050', 'REMPE'),
 ('5207050006', '5207050', 'TAPIR'),
 ('5207050007', '5207050', 'SETELUK ATAS'),
-('5207050008', '5207050', 'SETELUK TENGAH');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('5207050008', '5207050', 'SETELUK TENGAH'),
 ('5207050009', '5207050', 'LAMUSUNG'),
 ('5207050010', '5207050', 'LOKA'),
 ('5207050011', '5207050', 'SERAN'),
@@ -60325,7 +61180,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('5208010004', '5208010', 'GILI INDAH'),
 ('5208020001', '5208020', 'SIGAR PENJALIN'),
 ('5208020002', '5208020', 'TENIGA'),
-('5208020003', '5208020', 'TEGAL MAJA'),
+('5208020003', '5208020', 'TEGAL MAJA');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('5208020004', '5208020', 'JENGGALA'),
 ('5208020005', '5208020', 'TANJUNG'),
 ('5208020006', '5208020', 'SOKONG'),
@@ -61660,8 +62516,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('5308040010', '5308040', 'LEWOELENG'),
 ('5308040011', '5308040', 'LODOTODOKOWA'),
 ('5308040012', '5308040', 'SERANGGORANG'),
-('5308040013', '5308040', 'BALUREBONG');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('5308040013', '5308040', 'BALUREBONG'),
 ('5308040014', '5308040', 'LAMALELA'),
 ('5308040015', '5308040', 'TAPOLANGU'),
 ('5308040016', '5308040', 'BANITOBO'),
@@ -61678,7 +62533,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('5308050010', '5308050', 'LEWOLEBA'),
 ('5308050011', '5308050', 'LEWOLEBA TENGAH'),
 ('5308050012', '5308050', 'LEWOLEBA TIMUR'),
-('5308050013', '5308050', 'LITEULUMADO'),
+('5308050013', '5308050', 'LITEULUMADO');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('5308050014', '5308050', 'PADA'),
 ('5308050015', '5308050', 'BAKALEREK'),
 ('5308050016', '5308050', 'LEWOLEBA SELATAN'),
@@ -62996,8 +63852,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('5315050026', '5315050', 'NANGA KANTOR BARAT'),
 ('5316010008', '5316010', 'ANAKALANG'),
 ('5316010009', '5316010', 'MAKATA KERI'),
-('5316010010', '5316010', 'UMBU RIRI');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('5316010010', '5316010', 'UMBU RIRI'),
 ('5316010011', '5316010', 'MATA WOGA'),
 ('5316010012', '5316010', 'KABELA WUNTU'),
 ('5316010013', '5316010', 'DEWA JARA'),
@@ -63014,7 +63869,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('5316020001', '5316020', 'UMBU LANGGANG'),
 ('5316020002', '5316020', 'UMBU PABAL'),
 ('5316020003', '5316020', 'UMBU MAMIJUK'),
-('5316020004', '5316020', 'WAI RASA'),
+('5316020004', '5316020', 'WAI RASA');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('5316020005', '5316020', 'UMBU KAWOLU'),
 ('5316020006', '5316020', 'ANAJIAKA'),
 ('5316020007', '5316020', 'PONDOK'),
@@ -64307,8 +65163,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('6105060018', '6105060', 'LAPE'),
 ('6105060019', '6105060', 'SEI MAWANG'),
 ('6105060020', '6105060', 'SEI SENGKUANG'),
-('6105060021', '6105060', 'PANA');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('6105060021', '6105060', 'PANA'),
 ('6105060022', '6105060', 'MANGKIANG'),
 ('6105060023', '6105060', 'ENTAKAI'),
 ('6105060024', '6105060', 'KAMBONG'),
@@ -64325,7 +65180,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('6105070009', '6105070', 'SERAMBAI JAYA'),
 ('6105120001', '6105120', 'TERATI'),
 ('6105120002', '6105120', 'SELAMPUNG'),
-('6105120003', '6105120', 'SAPE'),
+('6105120003', '6105120', 'SAPE');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('6105120004', '6105120', 'SEMIRAU'),
 ('6105120005', '6105120', 'BALAI SEBUT'),
 ('6105120006', '6105120', 'SEMOMBAT'),
@@ -65569,8 +66425,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('6110070013', '6110070', 'BATU ONAP'),
 ('6110070014', '6110070', 'BATU BADAK'),
 ('6110070015', '6110070', 'LIHAI'),
-('6110070016', '6110070', 'NANGA KERUAB');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('6110070016', '6110070', 'NANGA KERUAB'),
 ('6110070017', '6110070', 'PELAIK KERUAB'),
 ('6110070018', '6110070', 'OYAH'),
 ('6110070019', '6110070', 'BATAS NANGKA'),
@@ -65587,7 +66442,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('6111020003', '6111020', 'PANGKALAN BUTON'),
 ('6111020004', '6111020', 'SUTRA'),
 ('6111020005', '6111020', 'BENAWAI AGUNG'),
-('6111020006', '6111020', 'HARAPAN MULIA'),
+('6111020006', '6111020', 'HARAPAN MULIA');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('6111020007', '6111020', 'SEDAHAN JAYA'),
 ('6111020008', '6111020', 'GUNUNG SEMBILAN'),
 ('6111020009', '6111020', 'PAMPANG HARAPAN'),
@@ -66824,8 +67680,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('6209091001', '6209091', 'TUMBANG BARAOI'),
 ('6209091002', '6209091', 'BATU TUKAN'),
 ('6209091003', '6209091', 'TUMBANG TANGOI'),
-('6209091004', '6209091', 'TUMBANG JALA');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('6209091004', '6209091', 'TUMBANG JALA'),
 ('6209091005', '6209091', 'BATU BADAK'),
 ('6209091006', '6209091', 'NUSA KUTAU'),
 ('6209091007', '6209091', 'TUMBANG HABANGOI'),
@@ -66841,7 +67696,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('6209100010', '6209100', 'TUMBANG BEMBAN'),
 ('6209100011', '6209100', 'TUMBANG LAMBI'),
 ('6209100012', '6209100', 'RANGAN TANGKO'),
-('6209100013', '6209100', 'TUMBANG TAEI'),
+('6209100013', '6209100', 'TUMBANG TAEI');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('6209100014', '6209100', 'TUMBANG MALAMAN'),
 ('6209100015', '6209100', 'SEBAUNG'),
 ('6209100016', '6209100', 'TUMBANG TUNDU'),
@@ -68066,8 +68922,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('6304060004', '6304060', 'SEMANGAT KARYA'),
 ('6304060005', '6304060', 'SEMANGAT BAKTI'),
 ('6304060006', '6304060', 'SEMANGAT DALAM'),
-('6304060007', '6304060', 'HANDIL BAKTI');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('6304060007', '6304060', 'HANDIL BAKTI'),
 ('6304060008', '6304060', 'TATAH MESJID'),
 ('6304060009', '6304060', 'BERANGAS TIMUR'),
 ('6304060010', '6304060', 'BERANGAS'),
@@ -68084,7 +68939,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('6304070003', '6304070', 'SUNGAI RAMANIA'),
 ('6304070004', '6304070', 'PUNTIK LUAR'),
 ('6304070005', '6304070', 'PUNTIK TENGAH'),
-('6304070006', '6304070', 'PUNTIK DALAM'),
+('6304070006', '6304070', 'PUNTIK DALAM');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('6304070007', '6304070', 'KARANG INDAH'),
 ('6304070008', '6304070', 'KARANG BUNGA'),
 ('6304070009', '6304070', 'TABING RIMBAH'),
@@ -69333,8 +70189,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('6371030014', '6371030', 'KUIN CERUCUK'),
 ('6371030015', '6371030', 'KUIN SELATAN'),
 ('6371031001', '6371031', 'KELAYAN LUAR'),
-('6371031002', '6371031', 'KERTAK BARU ILIR');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('6371031002', '6371031', 'KERTAK BARU ILIR'),
 ('6371031003', '6371031', 'MAWAR'),
 ('6371031004', '6371031', 'TELUK DALAM'),
 ('6371031005', '6371031', 'KERTAK BARU ULU'),
@@ -69351,7 +70206,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('6371040006', '6371040', 'ANTASAN KECIL TIMUR'),
 ('6371040007', '6371040', 'SURGI MUFTI'),
 ('6371040008', '6371040', 'SUNGAI JINGAH'),
-('6371040009', '6371040', 'ALALAK UTARA'),
+('6371040009', '6371040', 'ALALAK UTARA');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('6371040010', '6371040', 'ALALAK SELATAN'),
 ('6371040011', '6371040', 'ALALAK TENGAH'),
 ('6371040012', '6371040', 'SUNGAI ANDAI'),
@@ -70598,8 +71454,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('6502100002', '6502100', 'BUNYU SELATAN'),
 ('6502100003', '6502100', 'BUNYU TIMUR'),
 ('6503010001', '6503010', 'BALAYAN ARI'),
-('6503010002', '6503010', 'SEPUTUK');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('6503010002', '6503010', 'SEPUTUK'),
 ('6503010003', '6503010', 'RIAN'),
 ('6503010004', '6503010', 'KAPUAK'),
 ('6503010005', '6503010', 'RIAN RAYO'),
@@ -70618,7 +71473,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('6503030005', '6503030', 'MANING'),
 ('6503030006', '6503030', 'BUANG BARU'),
 ('6503040001', '6503040', 'SELUDAU'),
-('6503040002', '6503040', 'SESAYAP'),
+('6503040002', '6503040', 'SESAYAP');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('6503040003', '6503040', 'SEPALA DALUNG'),
 ('6503040004', '6503040', 'BANDAN BIKIS'),
 ('6503040005', '6503040', 'BEBATU'),
@@ -71905,8 +72761,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('7106050005', '7106050', 'KLABAT'),
 ('7106050006', '7106050', 'WARUKAPAS'),
 ('7106050007', '7106050', 'TETEY'),
-('7106050011', '7106050', 'TATELU SATU');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('7106050011', '7106050', 'TATELU SATU'),
 ('7106050012', '7106050', 'PINILIH'),
 ('7106050013', '7106050', 'TATELU RONDOR'),
 ('7106050014', '7106050', 'WASIAN'),
@@ -71925,7 +72780,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('7106051012', '7106051', 'PANIKI BARU'),
 ('7106060001', '7106060', 'TIWOHO'),
 ('7106060002', '7106060', 'WORI'),
-('7106060003', '7106060', 'KIMA BAJO'),
+('7106060003', '7106060', 'KIMA BAJO');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7106060004', '7106060', 'MINAESA'),
 ('7106060005', '7106060', 'TALAWAAN BANTIK'),
 ('7106060006', '7106060', 'TALAWAAN ATAS'),
@@ -73215,8 +74071,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('7203010006', '7203010', 'NGAPAEA'),
 ('7203010007', '7203010', 'MOROMPAITONGA'),
 ('7203010008', '7203010', 'PADALAA'),
-('7203010009', '7203010', 'PADEI DARAT');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('7203010009', '7203010', 'PADEI DARAT'),
 ('7203010010', '7203010', 'MASADIAN'),
 ('7203010011', '7203010', 'SAMARENGGA'),
 ('7203010012', '7203010', 'PULAU TIGA'),
@@ -73235,7 +74090,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('7203020001', '7203020', 'SAINOA'),
 ('7203020002', '7203020', 'POLEWALI'),
 ('7203020003', '7203020', 'PULAU DUA'),
-('7203020004', '7203020', 'UMBELE'),
+('7203020004', '7203020', 'UMBELE');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7203020005', '7203020', 'JAWI JAWI'),
 ('7203020006', '7203020', 'BUTON'),
 ('7203020007', '7203020', 'KOBURU'),
@@ -74562,8 +75418,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('7211070002', '7211070', 'TOROPOT'),
 ('7211070003', '7211070', 'KOKUDANG'),
 ('7211070004', '7211070', 'MINANGA'),
-('7211070005', '7211070', 'PAISUBEBE');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('7211070005', '7211070', 'PAISUBEBE'),
 ('7211070006', '7211070', 'KAUKES'),
 ('7211070007', '7211070', 'KEAK'),
 ('7211070008', '7211070', 'BUNGIN'),
@@ -74583,7 +75438,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('7212010006', '7212010', 'TOMATA'),
 ('7212010007', '7212010', 'PAMBAREA'),
 ('7212010008', '7212010', 'LONDI'),
-('7212010009', '7212010', 'GONTARA'),
+('7212010009', '7212010', 'GONTARA');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7212010010', '7212010', 'TAENDE'),
 ('7212010011', '7212010', 'ENSA'),
 ('7212010012', '7212010', 'LANUMOR'),
@@ -75866,8 +76722,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('7311080008', '7311080', 'TELLU BOCCOE'),
 ('7311080009', '7311080', 'PADAELO'),
 ('7311080010', '7311080', 'KADAI'),
-('7311080011', '7311080', 'TELLONGENG');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('7311080011', '7311080', 'TELLONGENG'),
 ('7311080012', '7311080', 'MATTAMPA WALIE'),
 ('7311080013', '7311080', 'DATA'),
 ('7311080014', '7311080', 'SUMALING'),
@@ -75886,7 +76741,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('7311090009', '7311090', 'PAKKASALO'),
 ('7311090010', '7311090', 'PATTIRO BAJO'),
 ('7311090011', '7311090', 'MAROANGING'),
-('7311090012', '7311090', 'CINNONG'),
+('7311090012', '7311090', 'CINNONG');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7311090013', '7311090', 'POLEWALI'),
 ('7311090014', '7311090', 'KALIBONG'),
 ('7311090015', '7311090', 'TADANG PALIE'),
@@ -77162,8 +78018,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('7322030014', '7322030', 'TOLADA'),
 ('7322030015', '7322030', 'PETTA LANDUNG'),
 ('7322030016', '7322030', 'GIRIKUSUMA'),
-('7322030025', '7322030', 'TANDUNG');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('7322030025', '7322030', 'TANDUNG'),
 ('7322030026', '7322030', 'PUTE MATA'),
 ('7322030027', '7322030', 'TINGKARA'),
 ('7322031001', '7322031', 'POMBAKKA'),
@@ -77183,7 +78038,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('7322040002', '7322040', 'LINO'),
 ('7322040003', '7322040', 'PAOMACANG'),
 ('7322040004', '7322040', 'WONOKERTO'),
-('7322040005', '7322040', 'SUMBER BARU'),
+('7322040005', '7322040', 'SUMBER BARU');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7322040006', '7322040', 'BANYUWANGI'),
 ('7322040007', '7322040', 'RAWAMANGUN'),
 ('7322040008', '7322040', 'MULYOREJO'),
@@ -78440,8 +79296,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('7404012003', '7404012', 'RANOMENTAA'),
 ('7404012004', '7404012', 'WOWOLI'),
 ('7404012005', '7404012', 'ANAWUA'),
-('7404012006', '7404012', 'RANO JAYA');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('7404012006', '7404012', 'RANO JAYA'),
 ('7404012007', '7404012', 'HORONGKULI'),
 ('7404012008', '7404012', 'WONUA RAYA'),
 ('7404012009', '7404012', 'RAHABITE'),
@@ -78461,7 +79316,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('7404020006', '7404020', 'KUMORO'),
 ('7404020007', '7404020', 'DAWI-DAWI'),
 ('7404020008', '7404020', 'TONGGONI'),
-('7404020009', '7404020', 'TOTOBO'),
+('7404020009', '7404020', 'TOTOBO');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7404020010', '7404020', 'PELAMBUA'),
 ('7404020011', '7404020', 'PESOUHA'),
 ('7404020012', '7404020', 'HUKO HUKO'),
@@ -79768,8 +80624,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('7413030012', '7413030', 'MOMUNTU'),
 ('7413030024', '7413030', 'SUKA DAMAI'),
 ('7413040001', '7413040', 'BARAKKAH'),
-('7413040002', '7413040', 'SANGIA TIWORO');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('7413040002', '7413040', 'SANGIA TIWORO'),
 ('7413040003', '7413040', 'KASIMPA JAYA'),
 ('7413040004', '7413040', 'KATANGANA'),
 ('7413040005', '7413040', 'PARURA JAYA'),
@@ -79790,7 +80645,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('7413060033', '7413060', 'WATUMELA'),
 ('7413070001', '7413070', 'LAWADA JAYA'),
 ('7413070002', '7413070', 'LAKALAMBA'),
-('7413070003', '7413070', 'MAROBEA'),
+('7413070003', '7413070', 'MAROBEA');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7413070004', '7413070', 'ONDOKE'),
 ('7413070011', '7413070', 'NIHI'),
 ('7413070014', '7413070', 'KAMPOBALANO'),
@@ -81100,8 +81956,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('7603030012', '7603030', 'SALUTAMBUN'),
 ('7603030013', '7603030', 'SALOAN'),
 ('7603031001', '7603031', 'NOSU'),
-('7603031002', '7603031', 'MASEWE');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('7603031002', '7603031', 'MASEWE'),
 ('7603031003', '7603031', 'BATU PAPAN'),
 ('7603031004', '7603031', 'MINANGA'),
 ('7603031005', '7603031', 'SIWI'),
@@ -81122,7 +81977,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('7603050006', '7603050', 'TAUPE'),
 ('7603050007', '7603050', 'BUNTUBUDA'),
 ('7603050008', '7603050', 'TONDOK BAKARU'),
-('7603050009', '7603050', 'PEBASSIAN'),
+('7603050009', '7603050', 'PEBASSIAN');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7603050010', '7603050', 'MAMBULILLING'),
 ('7603050011', '7603050', 'BOMBONG LAMBE'),
 ('7603050012', '7603050', 'BUBUN BATU'),
@@ -82451,8 +83307,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('8108021002', '8108021', 'PUR- PURA'),
 ('8108021003', '8108021', 'LEBELAU'),
 ('8108022001', '8108022', 'JERUSU'),
-('8108022002', '8108022', 'HILA');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('8108022002', '8108022', 'HILA'),
 ('8108022003', '8108022', 'SOLATH'),
 ('8108030001', '8108030', 'NUWEWANG'),
 ('8108030002', '8108030', 'TOMRA'),
@@ -82474,7 +83329,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('8108042003', '8108042', 'SERA'),
 ('8108042004', '8108042', 'YAMLULI'),
 ('8108042005', '8108042', 'LOLOTWARA'),
-('8108050001', '8108050', 'WULUR'),
+('8108050001', '8108050', 'WULUR');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('8108050002', '8108050', 'BATUMERAH'),
 ('8108050003', '8108050', 'KUAY MELU'),
 ('8108050004', '8108050', 'KUMUR'),
@@ -83813,8 +84669,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('8272010008', '8272010', 'TOLOA'),
 ('8272020001', '8272020', 'BOBO'),
 ('8272020002', '8272020', 'AFA AFA'),
-('8272020003', '8272020', 'MAREKU');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('8272020003', '8272020', 'MAREKU'),
 ('8272020004', '8272020', 'OME'),
 ('8272020005', '8272020', 'JAYA'),
 ('8272020006', '8272020', 'FOBAHARU'),
@@ -83836,7 +84691,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('8272030017', '8272030', 'TOPO TIGA'),
 ('8272030018', '8272030', 'TOMAGOBA'),
 ('8272030019', '8272030', 'FOLARORA'),
-('8272030020', '8272030', 'GOTO'),
+('8272030020', '8272030', 'GOTO');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('8272030021', '8272030', 'TAMBULA'),
 ('8272030022', '8272030', 'TUGUWAJI'),
 ('8272031001', '8272031', 'DOWORA'),
@@ -85179,8 +86035,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('9110072001', '9110072', 'ADOH'),
 ('9110072002', '9110072', 'TEMEL'),
 ('9110072003', '9110072', 'SOSIAN'),
-('9110072004', '9110072', 'ORAIN');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('9110072004', '9110072', 'ORAIN'),
 ('9110072005', '9110072', 'SEGIOR'),
 ('9110072006', '9110072', 'ORSU'),
 ('9110073001', '9110073', 'FIANE'),
@@ -85205,7 +86060,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('9110081002', '9110081', 'MAPURA'),
 ('9110081003', '9110081', 'KARFA'),
 ('9110081004', '9110081', 'UTWET'),
-('9110081005', '9110081', 'FRABOH'),
+('9110081005', '9110081', 'FRABOH');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('9110090004', '9110090', 'KOMBIF'),
 ('9110090005', '9110090', 'SEYA'),
 ('9110090006', '9110090', 'SUSWA'),
@@ -86551,8 +87407,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('9409081003', '9409081', 'RODIFU'),
 ('9409081004', '9409081', 'WARBINSI'),
 ('9409081005', '9409081', 'WONABRAIDI'),
-('9409081006', '9409081', 'RUMBIN');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('9409081006', '9409081', 'RUMBIN'),
 ('9409081007', '9409081', 'WODU'),
 ('9409081008', '9409081', 'SUP MBRUR'),
 ('9409081009', '9409081', 'FAKNIKDI'),
@@ -86576,7 +87431,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('9409090023', '9409090', 'WIR INSOS'),
 ('9409090024', '9409090', 'BIAWER'),
 ('9409090025', '9409090', 'WANIRI'),
-('9409090026', '9409090', 'IMBARI'),
+('9409090026', '9409090', 'IMBARI');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('9409090027', '9409090', 'MANBEORI'),
 ('9409090028', '9409090', 'MAMFIAS'),
 ('9409091001', '9409091', 'KARMON'),
@@ -87944,8 +88800,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('9416037006', '9416037', 'IKMUK'),
 ('9416037007', '9416037', 'ILUKDAMON'),
 ('9416037008', '9416037', 'YALMUN'),
-('9416041001', '9416041', 'SAMENAGE');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('9416041001', '9416041', 'SAMENAGE'),
 ('9416041002', '9416041', 'HALEROMA'),
 ('9416041003', '9416041', 'ISON'),
 ('9416041004', '9416041', 'ASOTAPO'),
@@ -87969,7 +88824,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('9416043004', '9416043', 'AGULUNTIPMU'),
 ('9416043005', '9416043', 'NILEN'),
 ('9416043006', '9416043', 'SURUKMU'),
-('9416043007', '9416043', 'TANDA'),
+('9416043007', '9416043', 'TANDA');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('9416044001', '9416044', 'USEREM'),
 ('9416044002', '9416044', 'SEIMA'),
 ('9416044003', '9416044', 'YUARIMA'),
@@ -89328,8 +90184,7 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('9427030009', '9427030', 'DOUWBO'),
 ('9427030010', '9427030', 'SYURDORI'),
 ('9428030001', '9428030', 'SIPISI'),
-('9428030002', '9428030', 'NADOFOAI');
-INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
+('9428030002', '9428030', 'NADOFOAI'),
 ('9428030003', '9428030', 'RAWIWA'),
 ('9428030004', '9428030', 'BARAPASI'),
 ('9428030005', '9428030', 'MARIKAI'),
@@ -89352,7 +90207,8 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('9428040003', '9428040', 'SWASESO'),
 ('9428040004', '9428040', 'KAPESO'),
 ('9428040005', '9428040', 'BAGUSA'),
-('9428040006', '9428040', 'WAREMBORI'),
+('9428040006', '9428040', 'WAREMBORI');
+INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('9428040007', '9428040', 'YOKE'),
 ('9428050001', '9428050', 'DANAU BIRA'),
 ('9428050002', '9428050', 'BURMESO'),
@@ -89993,661 +90849,6 @@ INSERT INTO `indonesia_villages` (`id`, `district_id`, `name`) VALUES
 ('9471040007', '9471040', 'TANJUNG RIA'),
 ('9471040008', '9471040', 'KAMPUNG KAYOBATU');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `inpatients`
---
-
-CREATE TABLE `inpatients` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `no_registrasi` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pasien_id` int(11) NOT NULL,
-  `tgl_masuk` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `time` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `entry_procedure` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `room_id` int(11) NOT NULL,
-  `doctor_id` int(11) NOT NULL,
-  `disease` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `person_in_charge` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `inpatients`
---
-
-INSERT INTO `inpatients` (`id`, `no_registrasi`, `pasien_id`, `tgl_masuk`, `time`, `entry_procedure`, `room_id`, `doctor_id`, `disease`, `person_in_charge`, `name`, `address`, `phone`, `created_at`, `updated_at`) VALUES
-(1, '001', 1, '2019-05-07', '15:00', 'Rumah', 1, 1, 'Anemia', 'Orang Tua', 'Jajang', 'Jl. Tester Alpha', '081222123321', '2019-05-07 00:33:39', '2019-05-07 00:33:39'),
-(2, '002', 2, '2019-05-07', '16:00', 'Puskesmas', 2, 2, 'Malaria', 'Orang Tua', 'Jujung', 'Jl. Tester Beta', '081222321123', '2019-05-07 00:34:35', '2019-05-07 00:34:35');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `levels`
---
-
-CREATE TABLE `levels` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `class` int(11) NOT NULL,
-  `tarif` double(25,2) NOT NULL DEFAULT '0.00',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `levels`
---
-
-INSERT INTO `levels` (`id`, `code`, `class`, `tarif`, `created_at`, `updated_at`) VALUES
-(1, '001', 1, 150000.00, '2019-05-07 00:29:16', '2019-05-07 00:29:16');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `login_histories`
---
-
-CREATE TABLE `login_histories` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `datetime` datetime DEFAULT NULL,
-  `type` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `materials`
---
-
-CREATE TABLE `materials` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `packaging` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fill_in` int(11) NOT NULL,
-  `unit` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `minimum_stock` int(11) NOT NULL,
-  `group` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `supplier_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `purchase_price` double(25,2) NOT NULL DEFAULT '0.00',
-  `selling_price` double(25,2) NOT NULL DEFAULT '0.00',
-  `recipe_prices` int(11) NOT NULL DEFAULT '0',
-  `profit` int(11) NOT NULL DEFAULT '0',
-  `profit_persen` int(11) NOT NULL DEFAULT '0',
-  `expire_date` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_update` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `update_by` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `menus`
---
-
-CREATE TABLE `menus` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `parent_id` int(11) NOT NULL DEFAULT '0',
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `url` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `icon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `order_number` int(11) DEFAULT NULL,
-  `is_showed` tinyint(1) NOT NULL,
-  `method` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `menus`
---
-
-INSERT INTO `menus` (`id`, `parent_id`, `name`, `url`, `icon`, `order_number`, `is_showed`, `method`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 0, 'Dashboard', 'dashboard', 'mdi mdi-view-dashboard', 2, 1, 'dashboard', NULL, '2019-05-07 00:13:30', NULL),
-(2, 0, 'Master Data', 'dashboard', 'mdi mdi-book', 4, 1, 'dashboard', NULL, '2019-05-07 00:13:33', NULL),
-(3, 2, 'User', 'user', 'mdi mdi-account', 5, 1, 'pengguna', NULL, '2019-05-07 00:13:34', NULL),
-(4, 2, 'Divisi', 'division', 'fa fa-users', 7, 1, 'dashboard', NULL, '2019-05-07 00:13:37', NULL),
-(5, 2, 'Perusahaan', 'company', 'fa fa-briefcase', 9, 1, 'dashboard', NULL, '2019-05-07 00:13:38', NULL),
-(6, 2, 'Departement', 'department', 'fa fa-university', 11, 1, 'dashboard', NULL, '2019-05-07 00:13:44', NULL),
-(7, 2, 'Pasien', 'pasien', 'fa fa-wheelchair', 13, 1, 'dashboard', NULL, '2019-05-07 00:13:45', NULL),
-(8, 2, 'Dokter', 'doctor', 'fa fa-user-md', 15, 1, 'dashboard', NULL, '2019-05-07 00:13:47', NULL),
-(9, 2, 'Tindakan/Tarif', 'action', 'fa fa-usd', 17, 1, 'dashboard', NULL, '2019-05-07 00:13:50', NULL),
-(10, 2, 'Kelas', 'level', 'fa fa-level-up', 19, 1, 'dashboard', NULL, '2019-05-07 00:13:55', NULL),
-(11, 2, 'Ruangan', 'room', 'fa fa-bed', 21, 1, 'dashboard', NULL, '2019-05-07 00:13:58', NULL),
-(12, 2, 'Supplier', 'supplier', 'fa fa-balance-scale', 23, 1, 'dashboard', NULL, '2019-05-07 00:14:01', NULL),
-(13, 2, 'Bahan & Obat ', 'material', 'fa fa-medkit', 25, 1, 'dashboard', NULL, '2019-05-07 00:14:03', NULL),
-(14, 0, 'Rawat Inap', 'inpatient', 'fa fa-hospital-o', 28, 1, 'dashboard', NULL, '2019-05-07 00:13:31', NULL),
-(15, 14, 'Registrasi', 'registration_inpatient', 'fa fa-user-plus', 29, 1, 'dashboard', NULL, '2019-05-07 00:14:05', NULL),
-(16, 14, 'Pemeriksaan', 'examination_inpatient', 'fa fa-stethoscope', 31, 1, 'dashboard', NULL, '2019-05-07 00:14:08', NULL),
-(17, 0, 'Rawat Jalan', 'outpatient', 'fa fa-ambulance', 34, 1, 'dashboard', NULL, '2019-05-07 00:13:31', NULL),
-(18, 17, 'Registrasi', 'registration_outpatient', 'fa fa-user-plus', 35, 1, 'dashboard', NULL, '2019-05-07 00:14:10', NULL),
-(19, 17, 'Pemeriksaan', 'examination_outpatient', 'fa fa-stethoscope', 37, 1, 'dashboard', NULL, '2019-05-07 00:14:10', NULL),
-(20, 0, 'Pasien Keluar', 'patient_exits', 'fa fa-wheelchair-alt', 40, 1, 'dashboard', NULL, '2019-05-07 00:31:50', NULL),
-(21, 0, 'Pembayaran', 'payment', 'fa fa-usd', 42, 1, 'dashboard', NULL, '2019-05-07 00:13:31', NULL),
-(22, 0, 'Settings', 'settings', 'mdi mdi-settings', 44, 1, 'dashboard', NULL, '2019-05-07 00:13:31', NULL),
-(23, 22, 'Roles', 'settings/role', 'fa fa-universal-access', 45, 1, 'dashboard', NULL, '2019-05-07 00:14:15', NULL),
-(24, 22, 'Permissions', 'settings/permission', 'fa fa-key', 47, 1, 'dashboard', NULL, '2019-05-07 00:14:16', NULL),
-(25, 22, 'System', 'system', 'fa fa-cogs', 49, 1, 'dashboard', NULL, '2019-05-07 00:14:20', NULL),
-(26, 22, 'Menu', 'menu', 'mdi mdi-menu', 51, 1, 'dashboard', NULL, '2019-05-07 00:14:21', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `migrations`
---
-
-CREATE TABLE `migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `migrations`
---
-
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2016_06_01_000001_create_oauth_auth_codes_table', 1),
-(4, '2016_06_01_000002_create_oauth_access_tokens_table', 1),
-(5, '2016_06_01_000003_create_oauth_refresh_tokens_table', 1),
-(6, '2016_06_01_000004_create_oauth_clients_table', 1),
-(7, '2016_06_01_000005_create_oauth_personal_access_clients_table', 1),
-(8, '2016_08_03_072729_create_provinces_table', 1),
-(9, '2016_08_03_072750_create_cities_table', 1),
-(10, '2016_08_03_072804_create_districts_table', 1),
-(11, '2016_08_03_072819_create_villages_table', 1),
-(12, '2018_10_15_013214_create_menus_table', 1),
-(13, '2018_10_15_030253_entrust_setup_tables', 1),
-(14, '2018_10_15_032350_create_login_histories_table', 1),
-(15, '2018_10_15_045420_create_settings_table', 1),
-(16, '2018_10_16_070240_create_divisions_tables', 1),
-(17, '2018_10_16_080743_create_departments_table', 1),
-(18, '2018_10_16_135407_create_customers_table', 1),
-(19, '2018_10_17_054955_create_systems_table', 1),
-(20, '2018_10_17_064820_create_suppliers_table', 1),
-(21, '2018_11_07_042209_create_sections_table', 1),
-(22, '2019_03_19_053027_create_pasiens_table', 1),
-(23, '2019_03_19_053645_create_pasien_datas_table', 1),
-(24, '2019_03_19_054653_create_doctors_table', 1),
-(25, '2019_03_21_082407_create_actions_table', 1),
-(26, '2019_04_02_060656_create_materials_table', 1),
-(27, '2019_04_02_081602_create_rooms_table', 1),
-(28, '2019_04_04_042329_create_levels_table', 1),
-(29, '2019_04_04_053204_create_companies_table', 1),
-(30, '2019_04_04_070045_create_inpatients_table', 1),
-(31, '2019_04_04_070254_create_outpatients_table', 1),
-(32, '2019_04_10_055127_create_diagnoses_table', 1),
-(33, '2019_04_23_045014_create_shoppingcart_table', 1),
-(35, '2019_05_02_082227_create_patient_exits_table', 2);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `oauth_access_tokens`
---
-
-CREATE TABLE `oauth_access_tokens` (
-  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `client_id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `scopes` text COLLATE utf8mb4_unicode_ci,
-  `revoked` tinyint(1) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `expires_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `oauth_auth_codes`
---
-
-CREATE TABLE `oauth_auth_codes` (
-  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `client_id` int(10) UNSIGNED NOT NULL,
-  `scopes` text COLLATE utf8mb4_unicode_ci,
-  `revoked` tinyint(1) NOT NULL,
-  `expires_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `oauth_clients`
---
-
-CREATE TABLE `oauth_clients` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `secret` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `redirect` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `personal_access_client` tinyint(1) NOT NULL,
-  `password_client` tinyint(1) NOT NULL,
-  `revoked` tinyint(1) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `oauth_personal_access_clients`
---
-
-CREATE TABLE `oauth_personal_access_clients` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `client_id` int(10) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `oauth_refresh_tokens`
---
-
-CREATE TABLE `oauth_refresh_tokens` (
-  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `access_token_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `revoked` tinyint(1) NOT NULL,
-  `expires_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `outpatients`
---
-
-CREATE TABLE `outpatients` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `no_registrasi` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pasien_id` int(11) NOT NULL,
-  `tgl_periksa` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `poliklinik` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `doctor_id` int(11) NOT NULL,
-  `disease` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `complaint` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pasiens`
---
-
-CREATE TABLE `pasiens` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `no_rm` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `allergy` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `another_note` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `pasiens`
---
-
-INSERT INTO `pasiens` (`id`, `no_rm`, `name`, `allergy`, `another_note`, `created_at`, `updated_at`) VALUES
-(1, '00000001', 'Dadang', 'Paradox', 'Pusying', '2019-05-07 00:24:33', '2019-05-07 00:24:33'),
-(2, '00000002', 'Diding', 'Bodrex', 'Jangar', '2019-05-07 00:26:37', '2019-05-07 00:26:37');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pasien_datas`
---
-
-CREATE TABLE `pasien_datas` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `pasien_id` int(11) NOT NULL,
-  `place` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `date_of_birth` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `gender` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `religion` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `education` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `work` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `blood_group` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `district_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `city_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `province_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `postal_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `identification_number` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `father_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mother_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `age` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `age_father` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `age_mother` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `guardian_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `guardian_address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `family_relationship` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `pasien_datas`
---
-
-INSERT INTO `pasien_datas` (`id`, `pasien_id`, `place`, `date_of_birth`, `gender`, `religion`, `education`, `work`, `status`, `blood_group`, `address`, `district_id`, `city_id`, `province_id`, `postal_code`, `identification_number`, `phone`, `father_name`, `mother_name`, `age`, `age_father`, `age_mother`, `guardian_name`, `guardian_address`, `family_relationship`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Bandung', '1995-05-07', 'Pria', 'islam', 'S1', 'Pengusaha', '1', 'AB+', 'Jl. Tester Alpha', '3273090', '3273', '32', '40377', '000010101010', '021546874', 'Maman', 'Mimi', '30', '45', '46', 'Wawan', 'Jl. Tester Alpha', 'Emang', '2019-05-07 00:24:33', '2019-05-07 00:24:33'),
-(2, 2, 'Bandung', '1990-03-11', 'Pria', 'islam', 'S1', 'TNI/POLRI', '1', 'AB-', 'Jl. Tester Beta', '3204010', '3204', '32', '40377', '000010101012', '0212145451', 'Imin', 'Mumu', '30', '45', '46', 'Wawang', 'Jl. Tester Beta', 'Mamank', '2019-05-07 00:26:37', '2019-05-07 00:26:37');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `password_resets`
---
-
-CREATE TABLE `password_resets` (
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `patient_exits`
---
-
-CREATE TABLE `patient_exits` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `no_registrasi` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pasien_id` int(11) NOT NULL,
-  `kel` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `age` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tgl_masuk` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `time` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `room_id` int(11) NOT NULL,
-  `disease` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tgl_keluar` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `time_keluar` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `way_out` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exit_state` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `total_biaya` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `patient_exits`
---
-
-INSERT INTO `patient_exits` (`id`, `no_registrasi`, `pasien_id`, `kel`, `age`, `address`, `tgl_masuk`, `time`, `room_id`, `disease`, `tgl_keluar`, `time_keluar`, `way_out`, `exit_state`, `total_biaya`, `created_at`, `updated_at`) VALUES
-(1, '001', 1, 'Pusying', '30', 'Jl. Tester Alpha', '2019-05-07', '15:00', 1, 'Anemia', '2019-05-08', '15:30', '02', '01', '200000', '2019-05-07 01:46:22', '2019-05-07 01:57:43');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `permissions`
---
-
-CREATE TABLE `permissions` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `parent_id` int(11) NOT NULL DEFAULT '0',
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `permissions`
---
-
-INSERT INTO `permissions` (`id`, `parent_id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 0, 'dashboard', 'Dashboard', 'Dashboard', NULL, NULL),
-(2, 0, 'users', 'Users', 'Users', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `permission_role`
---
-
-CREATE TABLE `permission_role` (
-  `permission_id` int(10) UNSIGNED NOT NULL,
-  `role_id` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `permission_role`
---
-
-INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
-(1, 1),
-(2, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `roles`
---
-
-CREATE TABLE `roles` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `roles`
---
-
-INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'Admin', 'Admin', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `role_user`
---
-
-CREATE TABLE `role_user` (
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `role_id` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `role_user`
---
-
-INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
-(1, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rooms`
---
-
-CREATE TABLE `rooms` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `level_id` int(11) NOT NULL,
-  `total_place_number` int(11) NOT NULL,
-  `place_resource` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `rooms`
---
-
-INSERT INTO `rooms` (`id`, `code`, `name`, `level_id`, `total_place_number`, `place_resource`, `created_at`, `updated_at`) VALUES
-(1, 'R001', 'Mawar', 1, 10, 5, '2019-05-07 00:30:08', '2019-05-07 00:30:08'),
-(2, 'R002', 'Melati', 1, 10, 7, '2019-05-07 00:30:34', '2019-05-07 00:30:34');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `sections`
---
-
-CREATE TABLE `sections` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `section_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `section_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `department_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `settings`
---
-
-CREATE TABLE `settings` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `system_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `system_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `system_val` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `shoppingcart`
---
-
-CREATE TABLE `shoppingcart` (
-  `identifier` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `instance` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `suppliers`
---
-
-CREATE TABLE `suppliers` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `supplier_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `supplier_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `supplier_address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `supplier_phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `supplier_email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `supplier_website` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `supplier_pic_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `supplier_pic_phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `supplier_pic_email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `systems`
---
-
-CREATE TABLE `systems` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `system_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `system_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `system_val` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `systems`
---
-
-INSERT INTO `systems` (`id`, `system_type`, `system_code`, `system_val`, `created_at`, `updated_at`) VALUES
-(1, 'config_other', 'dir_key', 'ADMIN;PLANT', '2018-10-16 16:43:36', '2018-10-17 13:37:27'),
-(15, 'config_multiply', 'status', '0,Non Active;1,Active', '2018-10-18 16:23:00', '2018-10-18 16:23:00'),
-(16, 'config_multiply', 'religion', 'islam,Islam;kristen,Kristen;budha,Budha;kataolik,Katolik;hindu,Hindu;kepercayaan,Kepercayaan', '2019-03-21 04:29:57', '2019-04-03 22:06:42'),
-(17, 'config_multiply', 'education', 'SD,SD;SMP,SMP;SMA,SMA;S1,S1;S2,S2', '2019-03-25 21:37:28', '2019-03-25 21:43:54'),
-(18, 'config_multiply', 'gender', 'Pria,Laki Laki; Perempuan,Perempuan', '2019-03-25 22:13:06', '2019-03-25 22:27:21'),
-(19, 'config_multiply', 'work', 'Pegawai Negeri,Pegawai Negeri;TNI/POLRI,TNI/POlRI;BUMN/BUMD,BUMN/BUMD;Guru,Guru;Pengusaha,Pengusaha,Karyawan Swasta,Karyawan Swasta;Petani,Petani;Peternak,Peternak;Wiraswasta,Wiraswasta', '2019-03-25 23:01:27', '2019-04-03 22:10:31'),
-(20, 'config_multiply', 'blood_group', 'A-,A Rh-;A+,A Rh+;AB-,AB Rh-;AB+,AB Rh+;B-,B Rh-;B+,B Rh+;O-,O Rh-;O+,O Rh+', '2019-03-25 23:12:20', '2019-04-03 22:16:04'),
-(21, 'config_multiply', 'poliklinik', 'Poli Klinik,Poli Klinik;Poli Bedah,Poli Bedah;Poli Anak, Poli Anak;Poli Gigi,Poli Gigi;Poli Kebidanan,Poli Kebidanan', '2019-04-03 21:55:02', '2019-04-03 21:55:02'),
-(22, 'config_multiply', 'drug_class', 'AKS,Alat Kesehatan;BBK,Bahan Baku;GEN,Generik;NAR,Narkotika;NGN,Non Generik', '2019-04-03 21:59:52', '2019-04-03 21:59:52'),
-(23, 'confg_multiply', 'type_of_medicine', 'EXT,Penggunaan Luar;INF,Infus;INJ,Injeksi;ORA,Oral', '2019-04-03 22:02:59', '2019-04-03 22:02:59'),
-(24, 'config_multiply', 'disease', '01,Paru-Paru;02,Kusta', '2019-04-03 22:05:19', '2019-04-03 22:05:19'),
-(25, 'config_multply', 'marital_status', 'Lajang,Lajang;Kawin,Kawin;Duda,Duda;Janda,Janda', '2019-04-03 22:13:27', '2019-04-03 22:13:27'),
-(26, 'config_multiply', 'family_relationship', '01,Ayah/Ibu;02,Paman/Bibi;03,Kakak/Adik;04,Saudara', '2019-04-03 22:19:27', '2019-04-03 22:19:27'),
-(27, 'config_multiply', 'entry_procedure', '01,Melalui Rawat Jalan;02,Melalui UGD;03,Kiriman Dokter;04,Rujukan RS Lain;05,Dari Puskesmas;06,Masuk Langsung', '2019-04-03 22:23:25', '2019-04-03 22:23:25'),
-(28, 'config_multiply', 'payment', '01,Tunai/Sendiri;02,Askes;03,Tanggungan Perusahaan;04,Kartu Kredit', '2019-04-03 22:25:37', '2019-04-03 22:25:37'),
-(29, 'config_multiply', 'discount', 'JAMST,Jamsostek;JPS,Jaring Pengaman Sos;KARY,Karyawan RS;PERSH,Perusahaan Langganan', '2019-04-03 22:27:44', '2019-04-03 22:27:44'),
-(30, 'config_multiply', 'way_out', '01,Kemauan Sendiri;02,Pulang Paksa;03,Melarikan Diri', '2019-04-03 22:29:42', '2019-04-03 22:29:42'),
-(31, 'config_multiply', 'exit_state', '01,Sembuh;02,Perbaikan;03,Masih Sakit;04,Meninggal Dunia', '2019-04-03 22:31:19', '2019-04-03 22:31:19'),
-(32, 'config_other', 'person_in_charge', 'Orang Tua;Teman', '2019-04-25 21:34:39', '2019-04-25 21:34:39'),
-(33, 'config_other', 'entry_procedure', 'Rumah;Puskesmas', '2019-04-25 21:36:09', '2019-04-25 21:36:09');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` int(11) NOT NULL,
-  `photo` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'img/pp.png',
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `department_id` int(11) DEFAULT NULL,
-  `division_id` int(11) DEFAULT NULL,
-  `direction` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `status`, `photo`, `remember_token`, `department_id`, `division_id`, `direction`, `created_at`, `updated_at`) VALUES
-(1, 'rifal', 'rifal@gmail.com', '$2y$10$wAmM0O9.vKNnpXEiTalUk.wk1Y.vB9oRHSAuvMansYMR4ibdTbkri', 1, 'img/pp.png', NULL, NULL, NULL, NULL, '2019-05-07 00:04:58', '2019-05-07 00:04:58');
-
 --
 -- Indexes for dumped tables
 --
@@ -90659,9 +90860,22 @@ ALTER TABLE `actions`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `cities`
+--
+ALTER TABLE `cities`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `indonesia_cities_province_id_foreign` (`province_id`);
+
+--
 -- Indexes for table `companies`
 --
 ALTER TABLE `companies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `currencies`
+--
+ALTER TABLE `currencies`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -90683,6 +90897,13 @@ ALTER TABLE `diagnoses`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `districts`
+--
+ALTER TABLE `districts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `indonesia_districts_city_id_foreign` (`city_id`);
+
+--
 -- Indexes for table `divisions`
 --
 ALTER TABLE `divisions`
@@ -90695,36 +90916,33 @@ ALTER TABLE `doctors`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `indonesia_cities`
+-- Indexes for table `examination_outpatients`
 --
-ALTER TABLE `indonesia_cities`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `indonesia_cities_province_id_foreign` (`province_id`);
-
---
--- Indexes for table `indonesia_districts`
---
-ALTER TABLE `indonesia_districts`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `indonesia_districts_city_id_foreign` (`city_id`);
-
---
--- Indexes for table `indonesia_provinces`
---
-ALTER TABLE `indonesia_provinces`
+ALTER TABLE `examination_outpatients`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `indonesia_villages`
+-- Indexes for table `examination_outpatient_datas`
 --
-ALTER TABLE `indonesia_villages`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `indonesia_villages_district_id_foreign` (`district_id`);
+ALTER TABLE `examination_outpatient_datas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `examination_outpatient_details`
+--
+ALTER TABLE `examination_outpatient_details`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `inpatients`
 --
 ALTER TABLE `inpatients`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `inpatient_payments`
+--
+ALTER TABLE `inpatient_payments`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -90822,6 +91040,12 @@ ALTER TABLE `patient_exits`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `permissions`
 --
 ALTER TABLE `permissions`
@@ -90833,6 +91057,12 @@ ALTER TABLE `permissions`
 --
 ALTER TABLE `permission_role`
   ADD PRIMARY KEY (`permission_id`,`role_id`);
+
+--
+-- Indexes for table `provinces`
+--
+ALTER TABLE `provinces`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `roles`
@@ -90866,12 +91096,6 @@ ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `shoppingcart`
---
-ALTER TABLE `shoppingcart`
-  ADD PRIMARY KEY (`identifier`,`instance`);
-
---
 -- Indexes for table `suppliers`
 --
 ALTER TABLE `suppliers`
@@ -90892,6 +91116,13 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Indexes for table `villages`
+--
+ALTER TABLE `villages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `indonesia_villages_district_id_foreign` (`district_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -90899,13 +91130,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `actions`
 --
 ALTER TABLE `actions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `currencies`
+--
+ALTER TABLE `currencies`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `customers`
@@ -90917,7 +91154,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `diagnoses`
@@ -90929,7 +91166,7 @@ ALTER TABLE `diagnoses`
 -- AUTO_INCREMENT for table `divisions`
 --
 ALTER TABLE `divisions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `doctors`
@@ -90938,16 +91175,40 @@ ALTER TABLE `doctors`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `examination_outpatients`
+--
+ALTER TABLE `examination_outpatients`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `examination_outpatient_datas`
+--
+ALTER TABLE `examination_outpatient_datas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `examination_outpatient_details`
+--
+ALTER TABLE `examination_outpatient_details`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `inpatients`
 --
 ALTER TABLE `inpatients`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `inpatient_payments`
+--
+ALTER TABLE `inpatient_payments`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `levels`
 --
 ALTER TABLE `levels`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `login_histories`
@@ -90959,19 +91220,19 @@ ALTER TABLE `login_histories`
 -- AUTO_INCREMENT for table `materials`
 --
 ALTER TABLE `materials`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `oauth_clients`
@@ -90989,7 +91250,7 @@ ALTER TABLE `oauth_personal_access_clients`
 -- AUTO_INCREMENT for table `outpatients`
 --
 ALTER TABLE `outpatients`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pasiens`
@@ -91007,13 +91268,19 @@ ALTER TABLE `pasien_datas`
 -- AUTO_INCREMENT for table `patient_exits`
 --
 ALTER TABLE `patient_exits`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -91025,7 +91292,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sections`
@@ -91043,41 +91310,41 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `systems`
 --
 ALTER TABLE `systems`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `indonesia_cities`
+-- Constraints for table `cities`
 --
-ALTER TABLE `indonesia_cities`
-  ADD CONSTRAINT `indonesia_cities_province_id_foreign` FOREIGN KEY (`province_id`) REFERENCES `indonesia_provinces` (`id`);
+ALTER TABLE `cities`
+  ADD CONSTRAINT `indonesia_cities_province_id_foreign` FOREIGN KEY (`province_id`) REFERENCES `provinces` (`id`);
 
 --
--- Constraints for table `indonesia_districts`
+-- Constraints for table `districts`
 --
-ALTER TABLE `indonesia_districts`
-  ADD CONSTRAINT `indonesia_districts_city_id_foreign` FOREIGN KEY (`city_id`) REFERENCES `indonesia_cities` (`id`);
+ALTER TABLE `districts`
+  ADD CONSTRAINT `indonesia_districts_city_id_foreign` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`);
 
 --
--- Constraints for table `indonesia_villages`
+-- Constraints for table `villages`
 --
-ALTER TABLE `indonesia_villages`
-  ADD CONSTRAINT `indonesia_villages_district_id_foreign` FOREIGN KEY (`district_id`) REFERENCES `indonesia_districts` (`id`);
+ALTER TABLE `villages`
+  ADD CONSTRAINT `indonesia_villages_district_id_foreign` FOREIGN KEY (`district_id`) REFERENCES `districts` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
